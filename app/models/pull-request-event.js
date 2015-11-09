@@ -1,0 +1,32 @@
+import DS from 'ember-data';
+import Event from './event';
+export default Event.extend({
+  action: DS.attr('string'),
+  url: DS.attr('string'),
+  html_url: DS.attr('string'),
+  diff_url: DS.attr('string'),
+  patch_url: DS.attr('string'),
+  issue_url: DS.attr('string'),
+  number: DS.attr('number'),
+  state: DS.attr('string'),
+  locked: DS.attr('boolean'),
+  title: DS.attr('string'),
+  user: DS.belongsTo('user'),
+  body: DS.attr('string'),
+  created_at: DS.attr('date'),
+  updated_at: DS.attr('date'),
+  closed_at: DS.attr('string'),
+  merged_at: DS.attr('string'),
+  merge_commit_sha: DS.attr('string'),
+  assignee: DS.attr('string'),
+  milestone: DS.attr('string'),
+  commits_url: DS.attr('string'),
+  review_comments_url: DS.attr('string'),
+  review_comment_url: DS.attr('string'),
+  comments_url: DS.attr('string'),
+  statuses_url: DS.attr('string'),
+  head: DS.attr('commit'),
+  base: DS.attr('commit'),
+  additions: DS.attr('number'),
+  deletions: DS.attr('number')
+});

@@ -1,0 +1,44 @@
+<div class="card">
+  <div class="card-image waves-effect waves-block waves-light">
+    <div class="row center chart">
+      {{#if loadingData}}
+        {{md-loader mode="circular" size="big"}}
+      {{else}}
+        {{ember-chart type='Line' data=timeChartData
+        options=chartOptions width=600 height=300 legend=true}}
+      {{/if}}
+    </div>
+    <div class="divider"></div>
+  </div>
+  <div class="card-content">
+    <span class="card-title activator grey-text text-darken-4">Commits Over Time<i class="material-icons right">more_vert</i></span>
+    {{#each ranges key="@index" as |range|}}
+      {{#if range.active}}
+        <p>{{range.name}}, {{user.name}} contributed {{commits.length}} commits over {{pushEvents.length}} pushes amounting to {{totalLinesCode}} lines of code.</p>
+      {{/if}}
+    {{/each}}
+  </div>
+  <div class="card-reveal">
+    <span class="card-title grey-text text-darken-4">Details<i class="material-icons right">close</i></span>
+    {{#if loadingData}}
+        {{md-loader mode="circular" size="big"}}
+    {{else}}
+      <ul class="collapsible" data-collapsible="accordion">
+        {{#each commits key="@index" as |commit|}}
+          <li>
+            <div class="collapsible-header"><i class="material-icons">filter_drama</i>
+              <div class="row">
+                <p>
+                  <div class="col s8 truncate">{{commit.commit.message}}</div>
+                  <div class="col s2 additions truncate">+ {{commit.stats.additions}}</div>
+                  <div class="col s2 push-s8 deletions truncate">- {{commit.stats.deletions}}</div>
+                </p>
+              </div>
+            </div>
+            <div class="collapsible-body"><p> </p></div>
+          </li>
+        {{/each}}
+      </ul>
+    {{/if}}
+  </div>
+</div>

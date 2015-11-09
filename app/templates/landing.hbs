@@ -1,0 +1,36 @@
+<br/>
+<br/>
+<br/>
+<div class="section no-pad-bot" id="index-banner">
+  <div class="container">
+    <br><br>
+    <h1 class="header center landing-banner bold">GitTrack</h1>
+    <div class="row center">
+      <h5 class="header col s12 light">A modern approach to Developer Tracking.</h5>
+    </div>
+    <div class="row center">
+      <div class="input-field offset-s5 col s2">
+        {{input id="gh_username" value=ghUsername type="text" class="validate"}}
+        <label class="center" for="last_name">Github Username</label>
+      </div>
+    </div>
+    <div class="row center">
+      <a {{action "goToDashboard" ghUsername}} class="btn-large waves-effect waves-light landing-button">
+        Get Started
+      </a>
+    </div>
+    <br><br>
+  </div>
+</div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+{{ax-footer}}

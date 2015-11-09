@@ -6,6 +6,23 @@ module.exports = function(defaults) {
     // Add options here
   });
 
+  app.import('./bower_components/materialize/dist/js/materialize.min.js');
+    app.import('./bower_components/materialize/dist/font/material-design-icons/Material-Design-Icons.eot', {
+        destDir: 'fonts'
+    });
+    app.import('./bower_components/materialize/dist/font/material-design-icons/Material-Design-Icons.svg', {
+        destDir: 'fonts'
+    });
+    app.import('./bower_components/materialize/dist/font/material-design-icons/Material-Design-Icons.ttf', {
+        destDir: 'fonts'
+    });
+    app.import('./bower_components/materialize/dist/font/material-design-icons/Material-Design-Icons.woff', {
+        destDir: 'fonts'
+    });
+    app.import('./bower_components/materialize/dist/font/material-design-icons/Material-Design-Icons.woff2', {
+        destDir: 'fonts'
+    });
+
   // Use `app.import` to add additional libraries to the generated
   // output files.
   //

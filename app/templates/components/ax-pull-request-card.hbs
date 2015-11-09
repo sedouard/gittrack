@@ -1,0 +1,35 @@
+<div class="card">
+  <div class="card-image waves-effect waves-block waves-light">
+    <div class="row center chart">
+      {{#if loading}}
+        {{md-loader mode="circular" size="big"}}
+      {{else}}
+          {{ember-chart type='Doughnut' data=doughnutChartData
+          options=chartOptions width=300 height=300 legend=true}}
+      {{/if}}
+    </div>
+    <div class="divider"></div>
+  </div>
+  <div class="card-content">
+    <span class="card-title activator grey-text text-darken-4">Pull Requests<i class="material-icons right">more_vert</i></span>
+    <p><a class="" href="#">Contributed {{pullRequests.length}} pull-requests </a> amounting to {{totalChanges.additions}} lines of code.</p>
+  </div>
+  <div class="card-reveal">
+    {{#if loading}}
+      {{md-loader mode="circular" size="big"}}
+    {{/if}}
+    <span class="card-title grey-text text-darken-4">Details<i class="material-icons right">close</i></span>
+    {{#md-table content=pullRequests class="bordered" as |row|}}
+      {{#md-table-col row=row key="title" header="Title"}}
+        <a href="{{row.html_url}}">{{row.title}}</a>
+      {{/md-table-col}}
+      {{#md-table-col row=row key="action" header="Status"}}
+        {{#if (is-equal row.action 'closed')}}
+          <i class="material-icons">done</i>
+        {{else}}
+          <i class="material-icons">input</i>
+        {{/if}}
+      {{/md-table-col}}
+    {{/md-table}}
+  </div>
+</div>
