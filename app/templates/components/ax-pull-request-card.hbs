@@ -2,7 +2,7 @@
   <div class="card-image waves-effect waves-block waves-light">
     <div class="row center chart">
       {{#if loading}}
-        {{md-loader mode="circular" size="big"}}
+          {{ax-large-spinner}}
       {{else}}
           {{ember-chart type='Doughnut' data=doughnutChartData
           options=chartOptions width=300 height=300 legend=true}}
@@ -16,7 +16,7 @@
   </div>
   <div class="card-reveal">
     {{#if loading}}
-      {{md-loader mode="circular" size="big"}}
+      {{ax-large-spinner}}
     {{/if}}
     <span class="card-title grey-text text-darken-4">Details<i class="material-icons right">close</i></span>
     {{#md-table content=pullRequests class="bordered" as |row|}}
