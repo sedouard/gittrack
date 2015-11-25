@@ -2,7 +2,7 @@
   <div class="card-image waves-effect waves-block waves-light">
     <div class="row center chart">
       {{#if loadingData}}
-        {{md-loader mode="circular" size="big"}}
+        {{ax-large-spinner}}
       {{else}}
         {{ember-chart type='Line' data=timeChartData
         options=chartOptions width=600 height=300 legend=true}}
@@ -21,7 +21,7 @@
   <div class="card-reveal">
     <span class="card-title grey-text text-darken-4">Details<i class="material-icons right">close</i></span>
     {{#if loadingData}}
-        {{md-loader mode="circular" size="big"}}
+        {{ax-large-spinner}}
     {{else}}
       <ul class="collapsible" data-collapsible="accordion">
         {{#each commits key="@index" as |commit|}}
