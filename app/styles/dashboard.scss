@@ -17,3 +17,10 @@
 .chart {
   height: 300px;
 }
+
+.chart-parent {
+  canvas: {
+    width: 90% !important;
+    height: 100% !important;
+  }
+}
