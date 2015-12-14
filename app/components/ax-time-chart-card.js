@@ -35,6 +35,7 @@ export default Ember.Component.extend({
             // add a tag to this commit
             var creationDate = event.get('updated_at') || event.get('created_at');
             commit.set('created_at', creationDate);
+            commit.set('repo', event.get('repo'));
             newCommits.push(commit);
           })
           .then(() => {

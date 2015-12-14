@@ -16,3 +16,8 @@ main {
   flex: 1 0 auto;
 }
 
+canvas {
+    width: 90% !important;
+    max-width: 800px;
+    height: 300px !important;
+}
