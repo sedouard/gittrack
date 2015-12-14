@@ -52,11 +52,30 @@ export default DS.RESTSerializer.extend({
       });
     }
 
+    if (data.files) {
+      data.relationships.files = {
+        data: []
+      }
+      data.files.forEach(file => {
+        data.relationships.files.data.push({
+          type: 'file',
+          id: file.filename
+        });
+
+        linkageObjects.push({
+          type: 'file',
+          id: file.filename,
+          attributes: file
+        });
+      });
+    }
+
     data.relationships.parents = {
       data: []
     };
 
     data.parents.forEach(parent => {
+
       data.relationships.parents.data.push({
         type: 'commitPreview',
         id: parent.url

@@ -4,14 +4,18 @@ export default Ember.Controller.extend({
   events: null,
   init: function () {
     Ember.run.scheduleOnce('afterRender', () => {
-      Ember.$(document).ready(function(){
+      Ember.$(document).ready(() => {
         Ember.$('.scrollspy').scrollSpy({target: '.spy-active'});
         Ember.$('.collapsible').collapsible({
           accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
         });
+        Ember.$(window).resize(() => {
+          this.set('width', Math.max(document.documentElement.clientWidth, window.innerWidth || 0));
+        });
       });
     });
   },
+  width: Math.max(document.documentElement.clientWidth, window.innerWidth || 0),
   daysBack: 0,
   ranges: [
     { name: 'Today',
@@ -44,8 +48,8 @@ export default Ember.Controller.extend({
       active: false
     },
     {
-      name: 'Since 8 Days Ago',
-      daysBack: 8,
+      name: 'Since 20 Days Ago',
+      daysBack: 20,
       active: false
     }
   ],
