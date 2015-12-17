@@ -1,0 +1,13 @@
+<div class="card">
+  <div class="card-image center chart">
+    {{#if loadingData}}
+      {{ax-large-spinner}}
+    {{else}}
+      {{ember-chart type='Bar' data=barChartData
+        options=chartOptions width=200 height=300 legend=true}}
+    {{/if}}
+  </div>
+  <div class="card-action">
+    <span class="card-title black-text text-darken">Top Languages Over {{pushEvents.length}} Pushes</span>
+  </div>
+</div>
