@@ -35,6 +35,8 @@ export default Ember.Service.extend({
         return 'YAML';
       case 'xml':
         return 'XML';
+      case 'md':
+        return 'Markdown';
       default:
         return null;
     }
