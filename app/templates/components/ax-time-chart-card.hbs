@@ -28,7 +28,7 @@
           <li>
             <div class="collapsible-header"><i class="material-icons">filter_drama</i>
               <div class="row">
-                <div class="col s8"><b><a href="{{commit.html_url}}">{{commit.repo.full_name}}</a></b></div>
+                <div class="col s8"><b><a target="_blank" href="{{commit.html_url}}">{{commit.repo.full_name}} - {{moment-from-now commit.created_at}}</a></b></div>
                 <div class="col s1 additions">+{{commit.stats.additions}}</div>
                 <div class="col s1 push-s8 deletions">-{{commit.stats.deletions}}</div>
               </div>
@@ -37,10 +37,22 @@
               </div>
             </div>
             <div class="collapsible-body">
+              <div class="row">
               <p>
                 {{commit.commit.message}}
-                <i class="material-icons">clear_all</i>Files: <div class="badge">{{commit.files.length}}</div>
               </p>
+              </div>
+              <div class="row">
+                <div class="col s2">
+                  <div class="number-circle block">{{commit.files.length}}</div>
+                  <div class="block">Files</div>
+                </div>
+                {{#each commit.languages key="@index" as |language|}}
+                  <div class="chip">
+                    {{language}}
+                  </div>
+                {{/each}}
+              </div>
             </div>
           </li>
         {{/each}}

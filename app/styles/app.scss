@@ -21,3 +21,22 @@ canvas {
     max-width: 800px;
     height: 300px !important;
 }
+
+.number-circle
+{
+  width:20px;
+  height:20px;
+  border-radius:50%;
+  font-size:10px;
+  line-height:20px;
+  text-align:center;
+  opacity: 0.95;
+  background-color:#cfd8dc;
+  margin-left: 10px;
+}
+
+.block
+{
+  display: inline-block;
+  font-size: 75%
+}

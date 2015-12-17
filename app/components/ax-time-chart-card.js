@@ -2,6 +2,7 @@ import Ember from 'ember';
 import config from '../config/environment';
 export default Ember.Component.extend({
   dateUtils: Ember.inject.service('dateUtils'),
+  fileExtension: Ember.inject.service('fileExtension'),
   commits: [],
   commitsLoading: false,
   loadingData: Ember.computed.or('commitsLoading', 'loading'),
@@ -62,17 +63,6 @@ export default Ember.Component.extend({
     return pushEvents;
   }.property('events'),
 
-  chartWidth: function () {
-    var chartWidth = this.get('width') * .33;
-    Ember.run.scheduleOnce('afterRender', () => {
-      Ember.$(document).ready(function(){
-        Ember.$('canvas').css('width', chartWidth);
-        Ember.$('canvas').css('height', '100%');
-      });
-    });
-    return chartWidth;
-  }.property('width'),
-
   timeChartData: function () {
 
     if (this.get('commits.length') <= 0) {
@@ -121,8 +111,39 @@ export default Ember.Component.extend({
       datasets: datasets
     };
 
+    // compute languges
+    this._computeLangauges();
+
     return data;
   }.property('commits'),
+
+  _computeLangauges: function () {
+    if (this.get('commits.length') <= 0) {
+      return {};
+    }
+    // use dictionary here to avoid double counting
+    var languages = {};
+    this.get('commits').forEach(commit => {
+      commit.get('files').forEach(file => {
+        var extension = this.get('fileExtension').getLanguageForFile(file.get('filename'));
+
+        if (extension) {
+          languages[extension] = true;
+        }
+      });
+
+      // array format is better for templates
+      var languagesArray = [];
+      for (var key in languages) {
+        if (typeof key === 'string') {
+          languagesArray.push(key);
+        }
+      }
+
+      commit.set('languages', languagesArray);
+    });
+
+  },
 
   totalLinesCode: function () {
 

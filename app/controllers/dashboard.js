@@ -9,13 +9,9 @@ export default Ember.Controller.extend({
         Ember.$('.collapsible').collapsible({
           accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
         });
-        Ember.$(window).resize(() => {
-          this.set('width', Math.max(document.documentElement.clientWidth, window.innerWidth || 0));
-        });
       });
     });
   },
-  width: Math.max(document.documentElement.clientWidth, window.innerWidth || 0),
   daysBack: 0,
   ranges: [
     { name: 'Today',
