@@ -8,5 +8,5 @@ export default Ember.Component.extend({
       });
     });
     return this._super();
-  },
+  }
 });
