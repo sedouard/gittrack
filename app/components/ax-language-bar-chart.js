@@ -54,6 +54,10 @@ export default Ember.Component.extend({
     return pushEvents;
   }.property('events'),
 
+  isEmpty: function () {
+    return !this.get('barChartData');
+  }.property('barChartData'),
+
   barChartData: function () {
 
     var dataset = {
@@ -68,7 +72,7 @@ export default Ember.Component.extend({
     };
 
     if (this.get('commits.length') <= 0) {
-      return data;
+      return null;
     }
 
     var languages = this.get('_computeLangauges');

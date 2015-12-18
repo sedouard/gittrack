@@ -19,6 +19,10 @@ export default Ember.Component.extend({
     return prs;
   }.property('events'),
 
+  isEmpty: function () {
+    return !this.get('doughnutChartData') || this.get('doughnutChartData').length === 0;
+  }.property('doughnutChartData'),
+
   totalChanges: function () {
 
     if (!this.get('pullRequests')) {

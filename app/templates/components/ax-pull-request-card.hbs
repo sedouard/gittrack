@@ -1,11 +1,16 @@
 <div class="card">
-  <div class="card-image waves-effect waves-block waves-light">
-    <div class="row center chart">
+  <div class="card-image waves-effect waves-block waves-light valign-wrapper">
+    <div class="row center chart valign">
       {{#if loading}}
           {{ax-large-spinner}}
       {{else}}
+        {{#if isEmpty}}
+          <i class="mdi-action-restore large"></i>
+          <h6>No Data, Try Rewinding the Time</h6>
+        {{else}}
           {{ember-chart type='Doughnut' data=doughnutChartData
           options=chartOptions width=200 height=300 legend=true}}
+        {{/if}}
       {{/if}}
     </div>
     <div class="divider"></div>
