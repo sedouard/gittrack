@@ -1,6 +1,21 @@
 .landing-button {
-  background-color: $primary-color
+  background-color: $primary-color;
 }
 .landing-banner {
-  color: $primary-color
+  color: $primary-color;
+}
+.label-large {
+  font-size: 2rem !important;
+  width: 300px !important;
+  left: 4rem !important;
+  margin-top: -10px;
+}
+.large-input {
+  width: 200% !important;
+}
+.landing-input {
+  margin-top: 40px;
+  input {
+    font-size: 2rem;
+  }
 }
