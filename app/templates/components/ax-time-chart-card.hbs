@@ -16,7 +16,7 @@
     <div class="divider"></div>
   </div>
   <div class="card-content">
-    <span class="card-title activator grey-text text-darken-4">Commits Activity<i class="material-icons right">more_vert</i></span>
+    <span class="card-title activator grey-text text-darken-4">Commit Activity<i class="material-icons right">more_vert</i></span>
     {{#each ranges key="@index" as |range|}}
       {{#if range.active}}
         <p>{{range.name}}, {{user.name}} contributed {{commits.length}} commits over {{pushEvents.length}} pushes amounting to {{totalLinesCode}} lines of code.</p>
@@ -33,7 +33,7 @@
       <ul class="collapsible" data-collapsible="accordion">
         {{#each commits key="@index" as |commit|}}
           <li>
-            <div class="collapsible-header"><i class="material-icons">filter_drama</i>
+            <div class="collapsible-header"><i class="material-icons mdi-content-create"></i>
               <div class="row">
                 <div class="col s8"><b><a target="_blank" href="{{commit.html_url}}">{{commit.repo.full_name}} - {{moment-from-now commit.created_at}}</a></b></div>
                 <div class="col s1 additions">+{{commit.stats.additions}}</div>

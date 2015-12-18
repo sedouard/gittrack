@@ -66,6 +66,8 @@ export default DS.RESTSerializer.extend({
       delete data.payload;
       data.relationships = {};
 
+      // somtimes repos only have name and not full_name
+      data.repo.full_name = data.repo.full_name || data.repo.name;
       data.attributes = data;
       data.actor.type = 'user';
       data.repo.type = 'repo';
