@@ -16,6 +16,11 @@ export default Ember.Component.extend({
     });
     return this._super();
   },
+
+  isEmpty: function () {
+    return !this.get('timeChartData');
+  }.property('timeChartData'),
+
   pushEvents: function () {
     var events = this.get('events'),
         pushEvents = [];
@@ -66,7 +71,7 @@ export default Ember.Component.extend({
   timeChartData: function () {
 
     if (this.get('commits.length') <= 0) {
-      return {};
+      return null;
     }
 
     var ranges = this.get('ranges'),

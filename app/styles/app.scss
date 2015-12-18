@@ -1,6 +1,6 @@
-@import 'dashboard';
 @import 'materialize';
 @import 'ember-cli-materialize';
+@import 'dashboard';
 @import 'color-overrides';
 @import 'navbar';
 @import 'landing';
@@ -40,3 +40,4 @@ canvas {
   display: inline-block;
   font-size: 75%
 }
+
