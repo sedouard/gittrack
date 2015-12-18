@@ -9,6 +9,12 @@
   </div>
   <div class="card-action">
     <i class="material-icons">supervisor_account</i>
-    <a href="{{user.followers_html}}">{{user.followers}}</a>
+    <a href="{{user.followers_html}}" class="tooltipped" data-position="top" data-tooltip="{{user.followers}} Followers">{{user.followers}}</a>
+    <i class="material-icons mdi-action-book tooltipped" data-position="top" data-tooltip="{{user.public_repos}} Public Repositories"></i>{{user.public_repos}}
+    {{#if user.hireable}}
+      <i class="material-icons mdi-action-work for-hire tooltipped" data-position="top" data-tooltip="Available for Hire"></i>
+    {{else}}
+      <i class="material-icons mdi-action-work tooltipped" data-position="top" data-tooltip="Not Available for Hire"></i>
+    {{/if}}
   </div>
 </div>
