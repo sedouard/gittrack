@@ -1,7 +1,7 @@
 <div class="container">
 
   <div class="row">
-    <div class="col s10 dashboard">
+    <div class="col s12 m10 dashboard">
       {{ax-navbar user=user}}
       <div class="row">
         <div class="col s12 m4">
@@ -29,7 +29,7 @@
         </div>
       </div>
     </div>
-    <div class="col s2 hide-on-small-only fixed range-selector">
+    <div class="col s12 m2 hide-on-small-only fixed range-selector">
       <ul class="table-of-contents">
         {{#each rangeData key="@index" as |range|}}
           <li><a class="{{if range.active 'active-range'}}" {{action "changeTimeView" range.daysBack}}>{{range.name}}</a></li>
