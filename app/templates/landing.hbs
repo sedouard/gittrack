@@ -11,14 +11,14 @@
       <h5 class="header col s12 light">A modern approach to Developer Tracking</h5>
     </div>
     <div class="row center">
-      <div class="input-field offset-s5 col s2">
-        {{input id="gh_username" value=ghUsername type="text" class="validate"}}
-        <label class="center" for="last_name">Github Username</label>
+      <div class="input-field landing-input offset-s4 col s2">
+        {{input id="gh_username" value=ghUsername type="text" class="validate center large-input"}}
+        <label class="center label-large" for="gh_username">Github Username</label>
       </div>
     </div>
     <div class="row center">
       <a {{action "goToDashboard" ghUsername}} class="btn-large waves-effect waves-light landing-button">
-        Get Started
+        Get Tracking
       </a>
     </div>
     <br><br>
