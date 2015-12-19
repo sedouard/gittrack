@@ -24,12 +24,12 @@ module.exports = function(environment) {
     GITHUB_AUTH_STING: '?client_id=4ced169fe09d3122ff49&client_secret=0c78d96d3f8cff686b71e5a48fbc76643ed2f5ba',
     contentSecurityPolicy: {
       'default-src': "'none'",
-      'script-src': "'self' http://gitrack.io/ 'unsafe-eval'",
-      'font-src': "'self' http://gitrack.io/ fonts.gstatic.com",
+      'script-src': "'self' http://gittrack.io/ 'unsafe-eval'",
+      'font-src': "'self' http://gittrack.io/ fonts.gstatic.com",
       'connect-src': "'self' https://api.github.com/ https://avatars.githubusercontent.com/ http://localhost:8080 http://gittrack.io",
       'img-src': "'self' https://api.github.com/ https://avatars.githubusercontent.com/ http://localhost:8080 http://gittrack.io",
-      'style-src': "'self' http://gitrack.io/ 'unsafe-inline' fonts.googleapis.com",
-      'media-src': "'self' http://gitrack.io/"
+      'style-src': "'self' http://gittrack.io/ 'unsafe-inline' fonts.googleapis.com",
+      'media-src': "'self' http://gittrack.io/"
     },
     APP: {
       // Here you can pass flags/options to your application instance
