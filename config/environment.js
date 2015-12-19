@@ -26,8 +26,8 @@ module.exports = function(environment) {
       'default-src': "'none'",
       'script-src': "'self' 'unsafe-eval'",
       'font-src': "'self' fonts.gstatic.com",
-      'connect-src': "'self' https://api.github.com/ https://avatars.githubusercontent.com/ http://localhost:8080",
-      'img-src': "'self' https://api.github.com/ https://avatars.githubusercontent.com/ http://localhost:8080",
+      'connect-src': "'self' https://api.github.com/ https://avatars.githubusercontent.com/ http://localhost:8080 http://gittrack.io",
+      'img-src': "'self' https://api.github.com/ https://avatars.githubusercontent.com/ http://localhost:8080 http://gittrack.io",
       'style-src': "'self' 'unsafe-inline' fonts.googleapis.com",
       'media-src': "'self'"
     },
@@ -41,11 +41,11 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
-    ENV.APP.LOG_RESOLVER = true;
-    ENV.APP.LOG_ACTIVE_GENERATION = true;
-    ENV.APP.LOG_TRANSITIONS = true;
-    ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
-    ENV.APP.LOG_VIEW_LOOKUPS = true;
+    // ENV.APP.LOG_RESOLVER = true;
+    // ENV.APP.LOG_ACTIVE_GENERATION = true;
+    // ENV.APP.LOG_TRANSITIONS = true;
+    // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
+    // ENV.APP.LOG_VIEW_LOOKUPS = true;
   }
 
   if (environment === 'test') {
