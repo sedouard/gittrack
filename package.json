@@ -10,15 +10,18 @@
   "scripts": {
     "start": "./node_modules/ember-cli/bin/ember server",
     "build": "./node_modules/ember-cli/bin/ember build",
-    "test": "./node_modules/ember-cli/bin/ember test"
+    "test": "./node_modules/ember-cli/bin/ember test",
+    "postinstall": "./node_modules/bower/bin/bower install"
   },
   "repository": "",
   "engines": {
-    "node": ">= 0.10.0"
+    "node": "0.12.7",
+    "npm": "3.3.9"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "bower": "^1.7.1",
     "broccoli-asset-rev": "^2.0.2",
     "ember-cli": "1.13.1",
     "ember-cli-app-version": "0.4.0",
