@@ -6,6 +6,5 @@ export default Ember.Route.extend({
      * then transition to the landing page
      */
     beforeModel: function () {
-        this.transitionTo('landing');
     },
 });

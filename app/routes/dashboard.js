@@ -9,9 +9,8 @@ export default Ember.Route.extend({
   eventsSortDesc: ['created_at:desc'],
   sortedEvents: Ember.computed.sort('events', 'eventsSortDesc'),
   model(params) {
-    this.store.find('event', {actorId: params.user_id});
+    return this.store.find('user', params.user_id);
   },
-
   setupController: function (controller, user) {
     this._super(controller, user);
     this.set('controller', controller);
