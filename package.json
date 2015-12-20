@@ -51,10 +51,5 @@
     "ember-radio-button": "1.0.7",
     "liquid-fire": "0.21.3",
     "materialize": "1.0.0"
-  },
-  "devDependencies": {
-    "ember-cli-deploy": "0.5.1",
-    "ember-cli-deploy-azure-blob": "0.1.1",
-    "ember-cli-deploy-build": "0.1.0"
   }
 }
