@@ -6,7 +6,7 @@ module.exports = function(defaults) {
     // Add options here
   });
 
-  app.import('./bower_components/materialize/dist/js/materialize.min.js');
+  app.import('./bower_components/materialize/bin/materialize.js');
     app.import('./bower_components/materialize/dist/font/material-design-icons/Material-Design-Icons.eot', {
         destDir: 'fonts'
     });
