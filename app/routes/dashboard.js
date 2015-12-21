@@ -12,6 +12,7 @@ export default Ember.Route.extend({
     return this.store.find('user', params.user_id);
   },
   setupController: function (controller, user) {
+    controller.set('user', user);
     return this.store.find('star', {id: user.id})
     .then(stars => {
 
@@ -22,6 +23,7 @@ export default Ember.Route.extend({
       }
       this._super(controller, user);
       this.set('controller', controller);
+      controller.set('optIn', true);
 
       controller.set('user', user);
       this._handleChangeTimeView(1);

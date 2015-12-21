@@ -13,7 +13,7 @@ module.exports = function(environment) {
       '#d4e157'
     ],
     host: 'http://cache.gittrack.io',
-    starsHost: 'http://localhost:3000',
+    starsHost: 'http://stars-tracker.gittrack.io',
     baseURL: '/',
     locationType: 'history',
     EmberENV: {
@@ -26,8 +26,8 @@ module.exports = function(environment) {
       'default-src': "'none'",
       'script-src': "'self' http://gittrack.io/ 'unsafe-eval'",
       'font-src': "'self' http://gittrack.io/ fonts.gstatic.com",
-      'connect-src': "'self' https://api.github.com/ https://avatars.githubusercontent.com/ http://localhost:3000 http://gittrack.io http://cache.gittrack.io",
-      'img-src': "'self' https://api.github.com/ https://avatars.githubusercontent.com/ http://localhost:3000 http://gittrack.io http://cache.gittrack.io",
+      'connect-src': "'self' https://api.github.com/ https://avatars.githubusercontent.com/ http://localhost:3000 http://gittrack.io http://stars-tracker.gittrack.io http://cache.gittrack.io",
+      'img-src': "'self' https://api.github.com/ https://avatars.githubusercontent.com/ http://localhost:3000 http://gittrack.io http://stars-tracker.gittrack.io http://cache.gittrack.io",
       'style-src': "'self' http://gittrack.io/ 'unsafe-inline' fonts.googleapis.com",
       'media-src': "'self' http://gittrack.io/"
     },
