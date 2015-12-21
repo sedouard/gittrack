@@ -4,6 +4,7 @@
 <div class="section no-pad-bot" id="index-banner">
   <div class="container">
     <br><br>
+    {{#if user}}
     <div class="row center">
       <h1>{{user.login}} doesn't have a <i class="mdi-action-trending-up">GitTrack</i> Profile</h1>
     </div>
@@ -12,6 +13,7 @@
       <h6 class="header col s12 light"> Send us a <a target="_blank" href="https://github.com/sedouard/gittrack">star</a> and <a target="_blank" href="http://gitrack.io/{{user.login}}">gittrack.io/{{user.login}}</a> will soon be yours!</h6>
       <h6 class="header col s12 light"> Want to peek at what <a target="_blank" href="https://github.com/{{user.login}}">{{user.login}}</a> has been up to anyways? Signup for <a target="_blank" href="http://pro.gittrack.io"><i class="mdi-action-trending-up">GitTrack</i> Pro</a></h6>
     </div>
+    {{/if}}
     <br><br>
   </div>
 </div>
