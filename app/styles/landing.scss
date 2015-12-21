@@ -4,19 +4,39 @@
 .landing-banner {
   color: $primary-color;
 }
-.label-large {
-  font-size: 2rem !important;
-  width: 300px !important;
-  left: 4rem !important;
-  margin-top: -10px;
+
+@media only screen and (max-width: 500px) {
+  .large {
+    font-size: 5rem !important;
+  }
+  .label-large {
+    font-size: 1rem !important;
+    width: 90% !important;
+    margin: auto;
+  }
+  .landing-input {
+    margin-top: 40px;
+    input {
+      font-size: 1rem;
+    }
+  }
 }
-.large-input {
-  width: 200% !important;
-}
-.landing-input {
+
+@media only screen and (min-width: 500px) {
+  .large {
+    font-size: 10rem !important;
+  }
+  .label-large {
+    margin: auto;
+    font-size: 2rem !important;
+    width: 100% !important;
+    margin-top: -10px;
+  }
+  .landing-input {
   margin-top: 40px;
   input {
     font-size: 2rem;
   }
+}
 }
 
