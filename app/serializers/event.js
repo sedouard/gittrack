@@ -10,7 +10,6 @@ export default DS.RESTSerializer.extend({
       payload.followers_html = payload.followers_url.replace('api.', '').replace('/users','');
     }
     // temporary
-    payload.avatar_url = payload.avatar_url.replace('https://avatars.githubusercontent.com', env.host);
     payload.url = payload.url.replace('https://api.github.com', env.host);
     payload = {
       data: {
@@ -20,13 +19,13 @@ export default DS.RESTSerializer.extend({
         relationships: {
           events: {
             links: {
-              related: payload.url + '/events' + env.GITHUB_AUTH_STING
+              related: payload.url + '/events'
             }
           }
         }
       },
       links: {
-        self: payload.url + env.GITHUB_AUTH_STING
+        self: payload.url
       }
     };
 
@@ -224,7 +223,7 @@ export default DS.RESTSerializer.extend({
       preview.relationships = {};
       preview.relationships.commit = {
         links: {
-          related: preview.url + env.GITHUB_AUTH_STING
+          related: preview.url
         }
       };
       linkageObjects.push(preview);
