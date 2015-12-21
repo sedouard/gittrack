@@ -12,7 +12,7 @@ export default GithubAdapter.extend({
       resolvedURL = this.get('host') + resolvedURL;
 
       if (query.page) {
-        resolvedURL += '&page=' + query.page;
+        resolvedURL += '?page=' + query.page;
       }
     }
     return resolvedURL;
