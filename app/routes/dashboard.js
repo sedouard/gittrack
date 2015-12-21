@@ -12,11 +12,20 @@ export default Ember.Route.extend({
     return this.store.find('user', params.user_id);
   },
   setupController: function (controller, user) {
-    this._super(controller, user);
-    this.set('controller', controller);
+    return this.store.find('star', {id: user.id})
+    .then(stars => {
 
-    controller.set('user', user);
-    this._handleChangeTimeView(1);
+      if (!stars.get('firstObject')) {
+        // for now go to landing
+        console.log('user: ' + user.id + ' has not starred the repo');
+        this.transitionTo('opt-in', user);
+      }
+      this._super(controller, user);
+      this.set('controller', controller);
+
+      controller.set('user', user);
+      this._handleChangeTimeView(1);
+    });
   },
 
   // Pages the events store for more events

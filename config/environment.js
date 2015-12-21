@@ -13,6 +13,7 @@ module.exports = function(environment) {
       '#d4e157'
     ],
     host: 'http://cache.gittrack.io',
+    starsHost: 'http://localhost:3000',
     baseURL: '/',
     locationType: 'history',
     EmberENV: {
