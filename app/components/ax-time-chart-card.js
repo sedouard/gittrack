@@ -6,17 +6,6 @@ export default Ember.Component.extend({
   commits: [],
   commitsLoading: false,
   loadingData: Ember.computed.or('commitsLoading', 'loading'),
-  init: function () {
-    Ember.run.scheduleOnce('afterRender', () => {
-      Ember.$(document).ready(function(){
-        Ember.$('.collapsible').collapsible({
-          accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
-        });
-      });
-    });
-    return this._super();
-  },
-
   isEmpty: function () {
     return !this.get('timeChartData');
   }.property('timeChartData'),
@@ -44,15 +33,6 @@ export default Ember.Component.extend({
             commit.set('repo', event.get('repo'));
             newCommits.push(commit);
           })
-          .then(() => {
-            Ember.run.scheduleOnce('afterRender', () => {
-              Ember.$(document).ready(function(){
-                Ember.$('.collapsible').collapsible({
-                  accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
-                });
-              });
-            });
-          });
 
           promises.push(promise);
         });
@@ -63,6 +43,11 @@ export default Ember.Component.extend({
     .then(() => {
       this.set('commits', newCommits);
       this.set('commitsLoading', false);
+      Ember.run.scheduleOnce('afterRender', () => {
+        Ember.$('.collapsible').collapsible({
+          accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+        });
+      });
     });
 
     return pushEvents;

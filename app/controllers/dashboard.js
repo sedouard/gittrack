@@ -6,9 +6,6 @@ export default Ember.Controller.extend({
     Ember.run.scheduleOnce('afterRender', () => {
       Ember.$(document).ready(() => {
         Ember.$('.scrollspy').scrollSpy({target: '.spy-active'});
-        Ember.$('.collapsible').collapsible({
-          accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
-        });
       });
     });
   },
