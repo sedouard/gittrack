@@ -29,6 +29,10 @@
             {{ax-conversations-card events=events loading=eventsLoading store=store user=user}}
           </div>
         </div>
+      {{else}}
+        <div class="center">
+          {{ax-large-spinner}}
+        </div>
       {{/if}}
     </div>
     <div class="col s12 m2 hide-on-small-only fixed range-selector">
