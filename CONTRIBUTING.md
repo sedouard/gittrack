@@ -22,6 +22,7 @@ Contributions are always welcome! Be sure to follow the [github workflow](https:
 To run GitTrack, just do:
 
 ```
+npm insatll && bower install
 ember serve
 ```
 
