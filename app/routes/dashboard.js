@@ -26,7 +26,8 @@ export default Ember.Route.extend({
       controller.set('optIn', true);
 
       controller.set('user', user);
-      this._handleChangeTimeView(1);
+      // start the default page a few days back
+      this._handleChangeTimeView(4);
     });
   },
 
