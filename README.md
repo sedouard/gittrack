@@ -1,8 +1,15 @@
 ![logo](img/logo.png)
 
+# What is Git Track?
+
+GitTrack is a heads-up-display of your activity on Github.
+
+![logo](img/dashboard.png)
+
 # Getting a GitTrack
 
 To generate your GitTrack, just star this repo and visit [gittrack.io](http://gittrack.io)
+
 
 # Contributing
 
