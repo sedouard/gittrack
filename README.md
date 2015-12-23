@@ -10,4 +10,4 @@ Contributions are always welcome! See the [contributing guide](./CONTRIBUTING.md
 
 # License
 
-Thie project is MIT License. See the [license file](./LICENSE.md) for more details.
+This project is MIT licensed. See the [license file](./LICENSE.md) for more details.
