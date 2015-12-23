@@ -31,16 +31,12 @@ export default Ember.Component.extend({
 
     var prEvents = this.get('pullRequests');
 
-    var changes = {
-      additions: 0,
-      deletions: 0
-    };
+    var changes = 0;
 
     prEvents.forEach(event => {
-      if (event.get('action') === 'closed') {
-        changes.additions +=  event.get('additions');
-        changes.deletions += event.get('deletions');
-      }
+      Ember.Logger.debug('action: ' + event.get('action'));
+      changes +=  event.get('additions');
+      changes += event.get('deletions');
     });
 
     Ember.Logger.debug('Changes count:');

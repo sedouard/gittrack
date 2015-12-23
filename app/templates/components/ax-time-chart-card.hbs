@@ -19,7 +19,7 @@
     <span class="card-title activator grey-text text-darken-4">Commit Activity<i class="material-icons right">more_vert</i></span>
     {{#each ranges key="@index" as |range|}}
       {{#if range.active}}
-        <p>{{range.name}}, {{user.name}} contributed {{commits.length}} commits over {{pushEvents.length}} pushes amounting to {{totalLinesCode}} lines of code.</p>
+        <p>{{range.name}}, {{user.name}} contributed {{commits.length}} commits over {{pushEvents.length}} pushes amounting to {{totalLinesCode}} lines of code changed.</p>
       {{/if}}
     {{/each}}
   </div>
@@ -35,9 +35,9 @@
           <li>
             <div class="collapsible-header"><i class="material-icons mdi-content-create"></i>
               <div class="row">
-                <div class="col s8"><b><a target="_blank" href="{{commit.html_url}}">{{commit.repo.full_name}} - {{moment-from-now commit.created_at}}</a></b></div>
+                <div class="col s8"><a target="_blank" href="{{commit.html_url}}">{{commit.repo.full_name}} - {{moment-from-now commit.created_at}}</a></div>
                 <div class="col s1 additions">+{{commit.stats.additions}}</div>
-                <div class="col s1 push-s8 deletions">-{{commit.stats.deletions}}</div>
+                <div class="col s1 deletions">-{{commit.stats.deletions}}</div>
               </div>
               <div class="row commit-message">
                 <div class="col s8 truncate">{{commit.commit.message}}</div>
@@ -50,15 +50,14 @@
               </p>
               </div>
               <div class="row">
-                <div class="col s2">
-                  <div class="number-circle block">{{commit.files.length}}</div>
-                  <div class="block">Files</div>
+                <div class="col s12 chip-container">
+                  <div class="chip">{{commit.files.length}} Files</div>
+                  {{#each commit.languages key="@index" as |language|}}
+                    <div class="chip">
+                      {{language}}
+                    </div>
+                  {{/each}}
                 </div>
-                {{#each commit.languages key="@index" as |language|}}
-                  <div class="chip">
-                    {{language}}
-                  </div>
-                {{/each}}
               </div>
             </div>
           </li>
