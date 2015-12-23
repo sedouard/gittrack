@@ -55,7 +55,7 @@ export default DS.RESTSerializer.extend({
     if (data.files) {
       data.relationships.files = {
         data: []
-      }
+      };
       data.files.forEach(file => {
         data.relationships.files.data.push({
           type: 'file',
