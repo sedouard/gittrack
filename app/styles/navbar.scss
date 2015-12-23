@@ -1,8 +1,12 @@
 .nav-row {
   margin-top: 10px;
 }
-.dashboard-navbar {
-  background-color: $primary-color
+nav {
+  background-color: $primary-color !important
+}
+
+.ghtrack-logo {
+  position: absolute
 }
 
 @media only screen and (min-width: 500px) {
