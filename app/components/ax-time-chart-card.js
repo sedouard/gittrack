@@ -32,7 +32,7 @@ export default Ember.Component.extend({
             commit.set('created_at', creationDate);
             commit.set('repo', event.get('repo'));
             newCommits.push(commit);
-          })
+          });
 
           promises.push(promise);
         });
@@ -145,34 +145,7 @@ export default Ember.Component.extend({
 
     return total;
   }.property('commits'),
-  respChart: function (selector, data, options){
 
-    // check if the option is override to exact options
-    // (bar, pie and other)
-    if (options == false || options == null){
-        options = option;
-    }
-
-    // get selector by context
-    var ctx = selector.get(0).getContext("2d");
-    // pointing parent container to make chart js inherit its width
-    var container = Ember.$(selector).parent();
-
-    // enable resizing matter
-    $(window).resize( generateChart );
-
-    // this function produce the responsive Chart JS
-    function generateChart(){
-        // make chart width fit with its container
-        var ww = selector.attr('width', Ember.$(container).width() );
-        // Initiate new chart or Redraw
-        new Chart(ctx).Line(data, options);
-    };
-
-    // run function - render chart at first load
-    generateChart();
-
-  },
   chartOptions: function () {
     return {
       //Boolean - Show a backdrop to the scale label
