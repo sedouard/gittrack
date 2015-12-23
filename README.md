@@ -1,5 +1,3 @@
-# GitTrack
-
 ![logo](img/logo.png)
 
 # Getting a GitTrack
