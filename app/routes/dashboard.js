@@ -19,7 +19,7 @@ export default Ember.Route.extend({
       if (!stars.get('firstObject')) {
         // for now go to landing
         console.log('user: ' + user.id + ' has not starred the repo');
-        this.transitionTo('opt-in', user);
+        return this.transitionTo('opt-in', user);
       }
       this._super(controller, user);
       this.set('controller', controller);
@@ -29,6 +29,7 @@ export default Ember.Route.extend({
       this._handleChangeTimeView(1);
     });
   },
+
 
   // Pages the events store for more events
   _appendBackData: function (cutOffTime, array, page) {
@@ -110,8 +111,8 @@ export default Ember.Route.extend({
   },
   actions: {
     changeTimeView: function (days) {
-
       this._handleChangeTimeView(days);
+      this.set('controller.selectMenuDays', days);
     }
   }
 });

@@ -11,3 +11,9 @@
 .comment-body {
   float:left
 }
+
+@media only screen and (max-width: 500px) {
+  .conversation-ul {
+    font-size: 10px
+  }
+}
