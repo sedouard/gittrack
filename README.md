@@ -1,6 +1,6 @@
 # GitTrack
 
-A github activity tracking page for everyone.
+![logo](img/logo.png)
 
 # Getting a GitTrack
 
