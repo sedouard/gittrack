@@ -31,5 +31,12 @@ canvas {
   display: inline-block;
   font-size: 75%
 }
-
-
+.page-footer {
+  background-color: $primary-color !important;
+  a {
+    color: $secondary-color !important
+  }
+}
+.proflie-card {
+  min-height: 300px
+}
