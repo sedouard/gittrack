@@ -9,7 +9,11 @@ export default Ember.Controller.extend({
       });
     });
   },
+  selectMenuDays: 0,
   daysBack: 0,
+  daysBackObserver: Ember.observer('selectMenuDays', function () {
+    this.send('changeTimeView', this.get('selectMenuDays'));
+  }),
   ranges: [
     { name: 'Today',
       daysBack: 1,
