@@ -1,6 +1,6 @@
 ![logo](img/logo.png)
 
-# What is Git Track?
+# What is GitTrack?
 
 GitTrack is a heads-up-display of your activity on Github.
 
