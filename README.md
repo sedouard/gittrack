@@ -1,5 +1,7 @@
 ![logo](img/logo.png)
 
+[![Build Status](https://travis-ci.org/sedouard/gittrack.svg?branch=master)](https://travis-ci.org/sedouard/gittrack)
+
 # What is GitTrack?
 
 GitTrack is a heads-up-display of your activity on Github.
