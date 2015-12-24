@@ -112,6 +112,12 @@ export default DS.RESTSerializer.extend({
           linkage = this.normalizeReleaseEvent(data);
           linkageObjects = linkageObjects.concat(linkage);
           break;
+        case 'publicEvent':
+          // todo: implement
+          break;
+        case 'commitCommentEvent':
+          // todo: implement
+          break;
         case 'watchEvent':
           break;
       }
