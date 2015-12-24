@@ -27,7 +27,7 @@ export default Ember.Route.extend({
 
       controller.set('user', user);
       // start the default page a few days back
-      this._handleChangeTimeView(4);
+      this.send('changeTimeView', 4);
     });
   },
 
@@ -91,6 +91,7 @@ export default Ember.Route.extend({
 
     this.set('eventsLoading', true);
     if (days === daysBack) {
+      this.set('eventsLoading', false);
       return;
     } else if (days < daysBack) {
       promise = this._removeBackData(cutOffTime);
