@@ -4,7 +4,7 @@ export default DS.Model.extend({
   name: DS.attr('string'),
   full_name: DS.attr('string'),
   url: DS.attr('string'),
-  private: DS.attr('booelan'),
+  'private': DS.attr('booelan'),
   html_url: DS.attr('string'),
   description: DS.attr('string'),
   fork: DS.attr('booelan'),

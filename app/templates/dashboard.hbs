@@ -13,23 +13,22 @@
           </div>
           <div class="col s12 m8">
             {{ax-dummy events=events loading=eventsLoading}}
-            {{ax-time-chart-card events=events ranges=ranges user=user loading=eventsLoading width=width}}
+            {{ax-time-chart-card pushEvents=pushEvents commits=commits events=events ranges=ranges user=user loading=eventsLoading width=width}}
           </div>
-        </div>
-        <div class="row">
           <div class="col s12 m5">
             {{ax-pull-request-card events=events loading=eventsLoading}}
           </div>
           <div class="col s12 m5">
             {{ax-language-bar-chart events=events loading=eventsLoading}}
           </div>
-        </div>
-        <div class="row">
           <div class="col s12 m5">
             {{ax-works-with events=events loading=eventsLoading store=store user=user}}
           </div>
           <div class="col s12 m7">
             {{ax-conversations-card events=events loading=eventsLoading store=store user=user}}
+          </div>
+          <div class="col s12 m5">
+            {{ax-commit-pie-chart commits=commits user=user}}
           </div>
         </div>
       {{else}}
