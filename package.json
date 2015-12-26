@@ -50,9 +50,7 @@
     "ember-new-computed": "1.0.3",
     "ember-radio-button": "1.0.7",
     "liquid-fire": "0.21.3",
-    "materialize": "1.0.0"
-  },
-  "devDependencies": {
+    "materialize": "1.0.0",
     "ember-cli-inline-content": "^0.4.0",
     "grunt": "^0.4.5",
     "grunt-azure-cdn-deploy": "^1.0.1",
