@@ -56,6 +56,7 @@
     "ember-cli-inline-content": "^0.4.0",
     "grunt": "^0.4.5",
     "grunt-azure-cdn-deploy": "^1.0.1",
-    "grunt-cli": "^0.1.13"
+    "grunt-cli": "^0.1.13",
+    "load-grunt-tasks": "^3.4.0"
   }
 }
