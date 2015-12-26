@@ -12,7 +12,7 @@ module.exports = function(environment) {
       '#66bb6a',
       '#d4e157'
     ],
-    host: 'http://localhost:3000',
+    host: 'http://cache.gittrack.io',
     starsHost: 'http://stars-tracker.gittrack.io',
     baseURL: '/',
     locationType: 'history',
