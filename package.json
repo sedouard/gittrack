@@ -8,8 +8,7 @@
     "test": "tests"
   },
   "scripts": {
-    "start": "./node_modules/ember-cli/bin/ember server",
-    "build": "./node_modules/ember-cli/bin/ember build --environment production",
+    "start": "./node_modules/ember-cli/bin/ember server --environment production",
     "test": "./node_modules/ember-cli/bin/ember test",
     "postinstall": "./node_modules/bower/bin/bower install"
   },
