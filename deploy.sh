@@ -29,7 +29,7 @@ echo 'deploying to CDN...'
 ./node_modules/grunt-cli/bin/grunt deploy
 
 echo 'deploying to Dokku...'
-git push dokku master
+git push dokku master -f
 
 echo 'Deployed Latest Version of GitTrack'
 
