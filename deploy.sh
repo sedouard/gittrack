@@ -25,9 +25,6 @@ ssh-add ./dokku-deploy
 echo 'Private keys added. Starting Dokku Deployment'
 git remote add $GIT_USERNAME $GIT_TARGET_URL
 
-echo 'deploying to CDN...'
-./node_modules/grunt-cli/bin/grunt deploy
-
 echo 'deploying to Dokku...'
 git push dokku master -f
 
