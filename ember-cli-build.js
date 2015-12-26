@@ -1,8 +1,24 @@
 /* global require, module */
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
+var path = require('path');
 
 module.exports = function(defaults) {
+  var staticPathRoot = process.env.STATIC_ASSET_ROOT || 'assets/';
   var app = new EmberApp(defaults, {
+    inlineContent: {
+      'gittrack.js' : {
+        content: staticPathRoot + 'ghtacker.js'
+      },
+      'gittrack.css' : {
+        content: staticPathRoot + 'ghtacker.css'
+      },
+      'vendor.css' : {
+        content: staticPathRoot + 'vendor.css'
+      },
+      'vendor.js' : {
+        content: staticPathRoot + 'vendor.js'
+      }
+    }
     // Add options here
   });
 

@@ -12,7 +12,7 @@ module.exports = function(environment) {
       '#66bb6a',
       '#d4e157'
     ],
-    host: 'http://cache.gittrack.io',
+    host: 'http://localhost:3000',
     starsHost: 'http://stars-tracker.gittrack.io',
     baseURL: '/',
     locationType: 'history',
@@ -24,12 +24,12 @@ module.exports = function(environment) {
     },
     contentSecurityPolicy: {
       'default-src': "'none'",
-      'script-src': "'self' http://gittrack.io/ 'unsafe-eval'",
-      'font-src': "'self' http://gittrack.io/ fonts.gstatic.com",
-      'connect-src': "'self' https://api.github.com/ https://avatars.githubusercontent.com/ http://localhost:3000 http://gittrack.io http://stars-tracker.gittrack.io http://cache.gittrack.io",
-      'img-src': "'self' https://api.github.com/ https://avatars.githubusercontent.com/ http://localhost:3000 http://gittrack.io http://stars-tracker.gittrack.io http://cache.gittrack.io",
-      'style-src': "'self' http://gittrack.io/ 'unsafe-inline' fonts.googleapis.com",
-      'media-src': "'self' http://gittrack.io/"
+      'script-src': "'self' http://gittrack.io/ http://cdn.gittrack.io 'unsafe-eval'",
+      'font-src': "'self' http://gittrack.io/ fonts.gstatic.com http://cdn.gittrack.io",
+      'connect-src': "'self' https://api.github.com/ https://avatars.githubusercontent.com/ http://localhost:3000 http://gittrack.io http://stars-tracker.gittrack.io http://cache.gittrack.io http://cdn.gittrack.io",
+      'img-src': "'self' https://api.github.com/ https://avatars.githubusercontent.com/ http://localhost:3000 http://gittrack.io http://stars-tracker.gittrack.io http://cache.gittrack.io http://cdn.gittrack.io",
+      'style-src': "'self' http://gittrack.io/ 'unsafe-inline' fonts.googleapis.com http://cdn.gittrack.io",
+      'media-src': "'self' http://gittrack.io/ http://cdn.gittrack.io"
     },
     APP: {
       // Here you can pass flags/options to your application instance
