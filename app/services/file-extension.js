@@ -6,6 +6,8 @@ export default Ember.Service.extend({
     switch(extension) {
       case 'js':
         return 'javascript';
+      case 'java':
+        return 'java';
       case 'cs':
         return 'c#';
       case 'rb':
