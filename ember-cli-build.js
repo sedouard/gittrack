@@ -3,41 +3,47 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 var path = require('path');
 
 module.exports = function(defaults) {
-  var staticPathRoot = process.env.STATIC_ASSET_ROOT || 'assets/';
+  var staticPathRoot = process.env.STATIC_ASSET_ROOT || '';
   var app = new EmberApp(defaults, {
     inlineContent: {
       'gittrack.js' : {
-        content: staticPathRoot + 'ghtacker.js'
+        content: staticPathRoot + 'assets/ghtacker.js'
       },
       'gittrack.css' : {
-        content: staticPathRoot + 'ghtacker.css'
+        content: staticPathRoot + 'assets/ghtacker.css'
       },
       'vendor.css' : {
-        content: staticPathRoot + 'vendor.css'
+        content: staticPathRoot + 'assets/vendor.css'
       },
       'vendor.js' : {
-        content: staticPathRoot + 'vendor.js'
+        content: staticPathRoot + 'assets/vendor.js'
+      },
+      '2fcrYFNaTjcS6g4U3t-Y5UEw0lE80llgEseQY3FEmqw.woff2': {
+        content: staticPathRoot + 'fonts/2fcrYFNaTjcS6g4U3t-Y5UEw0lE80llgEseQY3FEmqw.woff2'
       }
     }
     // Add options here
   });
 
   app.import('./bower_components/materialize/dist/js/materialize.js');
-    app.import('./bower_components/materialize/dist/font/material-design-icons/Material-Design-Icons.eot', {
-        destDir: 'fonts'
-    });
-    app.import('./bower_components/materialize/dist/font/material-design-icons/Material-Design-Icons.svg', {
-        destDir: 'fonts'
-    });
-    app.import('./bower_components/materialize/dist/font/material-design-icons/Material-Design-Icons.ttf', {
-        destDir: 'fonts'
-    });
-    app.import('./bower_components/materialize/dist/font/material-design-icons/Material-Design-Icons.woff', {
-        destDir: 'fonts'
-    });
-    app.import('./bower_components/materialize/dist/font/material-design-icons/Material-Design-Icons.woff2', {
-        destDir: 'fonts'
-    });
+  app.import('./bower_components/materialize/dist/font/material-design-icons/Material-Design-Icons.eot', {
+      destDir: 'fonts'
+  });
+  app.import('./bower_components/materialize/dist/font/material-design-icons/Material-Design-Icons.svg', {
+      destDir: 'fonts'
+  });
+  app.import('./bower_components/materialize/dist/font/material-design-icons/Material-Design-Icons.ttf', {
+      destDir: 'fonts'
+  });
+  app.import('./bower_components/materialize/dist/font/material-design-icons/Material-Design-Icons.woff', {
+      destDir: 'fonts'
+  });
+  app.import('./bower_components/materialize/dist/font/material-design-icons/Material-Design-Icons.woff2', {
+      destDir: 'fonts'
+  });
+  app.import('./vendor/fonts/2fcrYFNaTjcS6g4U3t-Y5UEw0lE80llgEseQY3FEmqw.woff2', {
+      destDir: 'fonts'
+  });
 
   // Use `app.import` to add additional libraries to the generated
   // output files.
