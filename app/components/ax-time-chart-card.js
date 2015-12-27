@@ -68,8 +68,8 @@ export default Ember.Component.extend({
       return {};
     }
     // use dictionary here to avoid double counting
-    var languages = {};
     this.get('commits').forEach(commit => {
+      var languages = {};
       commit.get('files').forEach(file => {
         var extension = this.get('fileExtension').getLanguageForFile(file.get('filename'));
 
