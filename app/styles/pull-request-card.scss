@@ -1,6 +1,18 @@
 .chart {
   margin-top: 10px;
+  max-height: 225px;
 }
 .preloader-wrapper {
   margin-top: 20%;
+}
+.pr-chart-wrapper {
+  height: 320px !important;
+}
+.pr-chart {
+  overflow-y: scroll;
+  canvas {
+      width: 90% !important;
+      max-width: 800px;
+      height: 220px !important;
+  }
 }

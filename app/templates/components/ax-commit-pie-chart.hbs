@@ -1,0 +1,21 @@
+<div class="card">
+  <div class="card-image center chart">
+    {{#if loading}}
+      {{ax-large-spinner}}
+    {{else}}
+      {{#if isEmpty}}
+          <i class="mdi-action-restore large"></i>
+          <h6>No Data, Try Rewinding the Time</h6>
+      {{else}}
+        {{ember-chart type='Pie' data=pieChartData
+        options=chartOptions width=0 height=0 legend=false}}
+      {{/if}}
+    {{/if}}
+  </div>
+  <div class="card-action">
+    {{#if maxContributedRepo}}
+      <span class="card-title black-text text-darken">Commits by Repo</span>
+      <p>Over {{commits.length}} total commits, {{user.name}} has contributed most to <a target="_blank" href="http://github.com/{{maxContributedRepo.repo.full_name}}">{{maxContributedRepo.repo.full_name}}</a></p>
+    {{/if}}
+  </div>
+</div>

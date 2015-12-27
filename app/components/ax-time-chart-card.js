@@ -3,55 +3,11 @@ import config from '../config/environment';
 export default Ember.Component.extend({
   dateUtils: Ember.inject.service('dateUtils'),
   fileExtension: Ember.inject.service('fileExtension'),
-  commits: [],
   commitsLoading: false,
   loadingData: Ember.computed.or('commitsLoading', 'loading'),
   isEmpty: function () {
     return !this.get('timeChartData');
   }.property('timeChartData'),
-
-  pushEvents: function () {
-    var events = this.get('events'),
-        pushEvents = [];
-
-    if (!events) {
-      return pushEvents;
-    }
-
-    var newCommits = [];
-    var promises = [];
-    this.set('commitsLoading', true);
-    events.forEach(event => {
-      if (event.get('constructor.typeKey') === 'pushEvent') {
-        pushEvents.push(event);
-        event.get('commits').forEach(commit => {
-          var promise = commit.get('commit')
-          .then(commit => {
-            // add a tag to this commit
-            var creationDate = event.get('updated_at') || event.get('created_at');
-            commit.set('created_at', creationDate);
-            commit.set('repo', event.get('repo'));
-            newCommits.push(commit);
-          });
-
-          promises.push(promise);
-        });
-      }
-    });
-
-    Ember.RSVP.all(promises)
-    .then(() => {
-      this.set('commits', newCommits);
-      this.set('commitsLoading', false);
-      Ember.run.scheduleOnce('afterRender', () => {
-        Ember.$('.collapsible').collapsible({
-          accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
-        });
-      });
-    });
-
-    return pushEvents;
-  }.property('events'),
 
   timeChartData: function () {
 

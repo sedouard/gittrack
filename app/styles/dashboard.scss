@@ -15,8 +15,12 @@
   height: 100px !important;
 }
 
+.dashboard-card {
+  height: 530px !important
+}
+
 .chart {
-  margin-top: 10px;
+  margin-top: 20px;
   min-height: 350px;
 }
 @media only screen and (min-width: 500px) {

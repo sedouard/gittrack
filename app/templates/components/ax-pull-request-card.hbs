@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card-image waves-block waves-light valign-wrapper">
-    <div class="row center chart valign">
+    <div class="row center pr-chart-wrapper valign">
       {{#if loading}}
           {{ax-large-spinner}}
       {{else}}
@@ -8,8 +8,10 @@
           <i class="mdi-action-restore large"></i>
           <h6>No Data, Try Rewinding the Time</h6>
         {{else}}
-          {{ember-chart type='Doughnut' data=doughnutChartData
-          options=chartOptions width=200 height=300 legend=true}}
+          <div class="pr-chart">
+            {{ember-chart type='Doughnut' data=doughnutChartData
+            options=chartOptions width=0 height=0 legend=true}}
+          </div>
         {{/if}}
       {{/if}}
     </div>

@@ -10,7 +10,9 @@ module.exports = function(environment) {
       '#26c6da',
       '#29b6f6',
       '#66bb6a',
-      '#d4e157'
+      '#d4e157',
+      '#ff9800',
+      '#69f0ae'
     ],
     host: 'http://cache.gittrack.io',
     starsHost: 'http://stars-tracker.gittrack.io',

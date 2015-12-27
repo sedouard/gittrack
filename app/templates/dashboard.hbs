@@ -8,28 +8,27 @@
           {{md-select action="changeTimeView" content=ranges optionLabelPath="content.name" optionValuePath="content.daysBack" value=selectMenuDays }}
         </div>
         <div class="row">
-          <div class="col s12 m4">
+          <div class="col s12 m4 dashboard-card">
             {{ax-profile-card user=user}}
           </div>
-          <div class="col s12 m8">
+          <div class="col s12 m8 dashboard-card">
             {{ax-dummy events=events loading=eventsLoading}}
-            {{ax-time-chart-card events=events ranges=ranges user=user loading=eventsLoading width=width}}
+            {{ax-time-chart-card pushEvents=pushEvents commits=commits events=events ranges=ranges user=user loading=commitsLoading width=width}}
           </div>
-        </div>
-        <div class="row">
-          <div class="col s12 m5">
-            {{ax-pull-request-card events=events loading=eventsLoading}}
+          <div class="col s12 m5 dashboard-card">
+            {{ax-commit-pie-chart commits=commits user=user loading=commitsLoading}}
           </div>
-          <div class="col s12 m5">
+          <div class="col s12 m5 dashboard-card">
             {{ax-language-bar-chart events=events loading=eventsLoading}}
           </div>
-        </div>
-        <div class="row">
-          <div class="col s12 m5">
-            {{ax-works-with events=events loading=eventsLoading store=store user=user}}
+          <div class="col s12 m5 dashboard-card">
+            {{ax-pull-request-card events=events loading=eventsLoading}}
           </div>
-          <div class="col s12 m7">
+          <div class="col s12 m7 dashboard-card">
             {{ax-conversations-card events=events loading=eventsLoading store=store user=user}}
+          </div>
+          <div class="col s12 m5 dashboard-card">
+            {{ax-works-with events=events loading=eventsLoading store=store user=user}}
           </div>
         </div>
       {{else}}
