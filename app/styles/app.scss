@@ -20,7 +20,7 @@ main {
   flex: 1 0 auto;
 }
 
-.card {
+.dashboard-card {
   height: 500px !important;
 }
 .chart {
@@ -41,6 +41,6 @@ main {
     color: $secondary-color !important
   }
 }
-.proflie-card {
-  min-height: 300px
+.dashboard-card-tall {
+  min-height: 580px
 }
