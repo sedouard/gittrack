@@ -10,6 +10,7 @@ export default Ember.Controller.extend({
       });
     });
   },
+  commitsLoading: true,
   selectMenuDays: 0,
   daysBack: 0,
   daysBackObserver: Ember.observer('selectMenuDays', function () {
