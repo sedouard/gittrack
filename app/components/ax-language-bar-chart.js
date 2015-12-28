@@ -1,3 +1,4 @@
+/*globals appInsights*/
 import Ember from 'ember';
 import config from '../config/environment';
 
@@ -93,6 +94,7 @@ export default Ember.Component.extend({
     }
     // use dictionary here to get counts for language
     var languages = {};
+    var count = 0;
     this.get('commits').forEach(commit => {
       commit.get('files').forEach(file => {
         var extension = this.get('fileExtension').getLanguageForFile(file.get('filename'));
@@ -105,11 +107,13 @@ export default Ember.Component.extend({
           languages[extension] += file.get('changes');
         } else {
           languages[extension] = file.get('changes');
+          count += 1;
         }
 
       });
     });
 
+    appInsights.trackMetric('languageCount', count);
     return languages;
   }.property('commits'),
 
