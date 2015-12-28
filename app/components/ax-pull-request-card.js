@@ -1,6 +1,15 @@
+/*globals appInsights*/
 import Ember from 'ember';
 import config from '../config/environment';
 export default Ember.Component.extend({
+  init: function () {
+    Ember.$(document).ready(function(){
+      Ember.$('.pr-title .collapsible-header').click(() => {
+        appInsights.trackEvent('prClick');
+      });
+    });
+    return this._super();
+  },
   pullRequests: function () {
     var prs = [],
         events = this.get('events');
@@ -15,7 +24,7 @@ export default Ember.Component.extend({
         prs.push(event);
       }
     });
-
+    appInsights.trackMetric('pullRequests', prs.length);
     return prs;
   }.property('events'),
 

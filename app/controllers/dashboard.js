@@ -1,3 +1,4 @@
+/*globals appInsights*/
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
@@ -16,6 +17,20 @@ export default Ember.Controller.extend({
   daysBackObserver: Ember.observer('selectMenuDays', function () {
     this.send('changeTimeView', this.get('selectMenuDays'));
   }),
+  /**
+  Tracks actions across various cards
+  **/
+  _setupTrackers: function () {
+    Ember.$('.commits-ul .collapsible-header').click(() => {
+      appInsights.trackEvent('commitDetailsClick');
+    });
+    Ember.$('.commit-title').click(() => {
+      appInsights.trackEvent('commitClick');
+    });
+    Ember.$('.conversation-ul .collapsible-header').click(() => {
+      appInsights.trackEvent('conversationClick');
+    });
+  },
   pushEvents: function () {
     var events = this.get('events'),
         pushEvents = [];
@@ -53,6 +68,7 @@ export default Ember.Controller.extend({
         Ember.$('.collapsible').collapsible({
           accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
         });
+        this._setupTrackers();
       });
     });
 

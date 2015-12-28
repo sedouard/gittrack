@@ -5,6 +5,9 @@
 /dist
 /tmp
 
+.DS_Store
+# deployment keys
+.dokku-*
 # dependencies
 /node_modules
 /bower_components

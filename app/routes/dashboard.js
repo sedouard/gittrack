@@ -1,3 +1,4 @@
+/*globals appInsights*/
 import Ember from 'ember';
 
 export default Ember.Route.extend({
@@ -18,6 +19,7 @@ export default Ember.Route.extend({
 
       if (!stars.get('firstObject')) {
         // for now go to landing
+        appInsights.trackPageView('notStarred');
         console.log('user: ' + user.id + ' has not starred the repo');
         return this.transitionTo('opt-in', user);
       }
@@ -26,6 +28,7 @@ export default Ember.Route.extend({
       controller.set('optIn', true);
 
       controller.set('user', user);
+      appInsights.trackPageView(user.get('login'));
       // start the default page a few days back
       this.send('changeTimeView', 4);
     });
@@ -92,6 +95,7 @@ export default Ember.Route.extend({
     this.set('eventsLoading', true);
     if (days === daysBack) {
       this.set('eventsLoading', false);
+      appInsights.trackMetric('events', this.get('controller.events.length'));
       return;
     } else if (days < daysBack) {
       promise = this._removeBackData(cutOffTime);
@@ -100,6 +104,7 @@ export default Ember.Route.extend({
       });
       this.set('daysBack', days);
       this.set('eventsLoading', false);
+      appInsights.trackMetric('events', this.get('controller.events.length'));
     } else if (days > daysBack) {
       this._appendBackData(cutOffTime, [], 1)
       .then(() => {
@@ -108,6 +113,7 @@ export default Ember.Route.extend({
         });
         this.set('daysBack', days);
         this.set('eventsLoading', false);
+        appInsights.trackMetric('events', this.get('controller.events.length'));
       });
     }
   },
@@ -115,6 +121,7 @@ export default Ember.Route.extend({
     changeTimeView: function (days) {
       this._handleChangeTimeView(days);
       this.set('controller.selectMenuDays', days);
+      appInsights.trackMetric('changeTimeView', days);
     }
   }
 });

@@ -4,25 +4,30 @@ var path = require('path');
 
 module.exports = function(defaults) {
   var staticPathRoot = process.env.STATIC_ASSET_ROOT || '';
-  var app = new EmberApp(defaults, {
-    inlineContent: {
-      'gittrack.js' : {
-        content: staticPathRoot + 'assets/ghtacker.js'
-      },
-      'gittrack.css' : {
-        content: staticPathRoot + 'assets/ghtacker.css'
-      },
-      'vendor.css' : {
-        content: staticPathRoot + 'assets/vendor.css'
-      },
-      'vendor.js' : {
-        content: staticPathRoot + 'assets/vendor.js'
-      },
-      '2fcrYFNaTjcS6g4U3t-Y5UEw0lE80llgEseQY3FEmqw.woff2': {
-        content: staticPathRoot + 'fonts/2fcrYFNaTjcS6g4U3t-Y5UEw0lE80llgEseQY3FEmqw.woff2'
-      }
+  var inlineContent = {
+    'gittrack.js' : {
+      content: staticPathRoot + 'assets/ghtacker.js'
+    },
+    'gittrack.css' : {
+      content: staticPathRoot + 'assets/ghtacker.css'
+    },
+    'vendor.css' : {
+      content: staticPathRoot + 'assets/vendor.css'
+    },
+    'vendor.js' : {
+      content: staticPathRoot + 'assets/vendor.js'
+    },
+    '2fcrYFNaTjcS6g4U3t-Y5UEw0lE80llgEseQY3FEmqw.woff2': {
+      content: staticPathRoot + 'fonts/2fcrYFNaTjcS6g4U3t-Y5UEw0lE80llgEseQY3FEmqw.woff2'
     }
-    // Add options here
+  };
+
+  if (!process.env.ENABLE_TELEMETRY) {
+    inlineContent['disable-app-insights'] = './vendor/js/ai-disable.js';
+  }
+
+  var app = new EmberApp(defaults, {
+    inlineContent: inlineContent
   });
 
   app.import('./bower_components/materialize/dist/js/materialize.js');

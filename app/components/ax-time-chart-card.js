@@ -5,6 +5,12 @@ export default Ember.Component.extend({
   fileExtension: Ember.inject.service('fileExtension'),
   commitsLoading: false,
   loadingData: Ember.computed.or('commitsLoading', 'loading'),
+  init: function () {
+    Ember.run.scheduleOnce('afterRender', () => {
+
+    });
+    return this._super();
+  },
   isEmpty: function () {
     return !this.get('timeChartData');
   }.property('timeChartData'),

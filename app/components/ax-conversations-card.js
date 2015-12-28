@@ -1,9 +1,10 @@
+/*globals appInsights*/
 import Ember from 'ember';
 
 export default Ember.Component.extend({
   issueComments: function () {
     var comments = this.get('store').all('issueCommentEvent');
-
+    appInsights.trackMetric('issueCommentEvent', comments.get('length'));
     Ember.run.scheduleOnce('afterRender', () => {
       Ember.$(document).ready(function(){
         Ember.$('.collapsible').collapsible({
