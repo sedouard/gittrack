@@ -1,13 +1,20 @@
 <div class="card-panel teal">
   <div class="card-action medium">
-    <span class="card-title white-text text-darken">Recently Worked With</span>
+    <span class="card-title white-text text-darken center">Recently Worked With</span>
   </div>
   <div class="people-card">
-    {{#each people key="@index" as |person|}}
+    {{#if isEmpty}}
+      <div class="center white-text">
+        <i class="mdi-action-restore large"></i>
+        <h6>No Data, Try Rewinding the Time</h6>
+      </div>
+    {{else}}
+      {{#each people key="@index" as |person|}}
        <div class="chip contact">
         <img src="{{person.avatar_url}}" alt="{{person.login}}">
         <a target="_blank" href="https://github.com/{{person.login}}">{{person.login}}</a>
        </div>
-    {{/each}}
+      {{/each}}
+    {{/if}}
   </div>
 </div>
