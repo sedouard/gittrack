@@ -9,6 +9,9 @@ export default Ember.Component.extend({
     });
     return this._super();
   },
+  isEmpty: function () {
+    return this.get('people').length === 0;
+  }.property('people'),
   people: function () {
     var result = this.get('store').all('user');
     var dictionary = {};
