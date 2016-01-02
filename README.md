@@ -4,13 +4,13 @@
 
 # What is GitTrack?
 
-GitTrack is a heads-up-display of your activity on Github.
+GitTrack is a heads-up-display of your activity on Github. It provides a single page aggregation of your recent activity on Github for others to see.
 
 ![logo](img/dashboard.png)
 
 # Getting a GitTrack
 
-To generate your GitTrack, just star this repo and visit [gittrack.io](http://gittrack.io)
+To generate your GitTrack, just star this repo and visit [gittrack.io](http://gittrack.io) and enter your github username.
 
 
 # Contributing
