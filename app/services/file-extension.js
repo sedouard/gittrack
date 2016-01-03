@@ -10,6 +10,13 @@ export default Ember.Service.extend({
         return 'java';
       case 'cs':
         return 'c#';
+      case 'vb':
+        return 'Visual Basic';
+      case 'bat':
+        return 'Batch script';
+      case 'ps':
+      case 'ps1':
+        return 'Powershell';
       case 'rb':
         return 'ruby';
       case 'sh':
@@ -25,7 +32,11 @@ export default Ember.Service.extend({
         return 'pearl';
       case 'php':
         return 'PHP';
+      case 'ascx':
       case 'aspx':
+      case 'asax':
+      case 'cshtml':
+      case 'vbhtml':
         return 'ASP.NET';
       case 'json':
         return 'JSON';
@@ -43,6 +54,9 @@ export default Ember.Service.extend({
         return 'TypeScript';
       case 'coffee':
         return 'CoffeeScript';
+      case 'jsx':
+      case 'tsx':
+        return 'React';
       default:
         return null;
     }
