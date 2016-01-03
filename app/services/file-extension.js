@@ -39,6 +39,10 @@ export default Ember.Service.extend({
         return 'XML';
       case 'md':
         return 'Markdown';
+      case 'ts':
+        return 'TypeScript';
+      case 'coffee':
+        return 'CoffeeScript';
       default:
         return null;
     }
