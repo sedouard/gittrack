@@ -12,8 +12,6 @@ deploy:
   on:
     branch: master
 before_install:
-- openssl aes-256-cbc -K $encrypted_95bb0616c610_key -iv $encrypted_95bb0616c610_iv
-  -in .dokku-deploy.enc -out dokku-deploy -d
 - export PATH=/usr/local/phantomjs-2.0.0/bin:$PATH
 - npm config set spin false
 - npm install -g npm@^2
