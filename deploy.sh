@@ -4,6 +4,9 @@ git init
 git config user.name "Travis CI"
 git config user.email "steven.edouard1@gmail.com"
 
+echo 'Decrypting Deployment Private key'
+openssl aes-256-cbc -K $encrypted_95bb0616c610_key -iv $encrypted_95bb0616c610_iv -in .dokku-deploy.enc -out dokku-deploy -d
+
 echo 'Adding files to local repo '
 ls -ltr
 git add .
