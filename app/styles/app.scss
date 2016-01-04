@@ -10,6 +10,7 @@
 @import 'works-with-card';
 @import 'conversations-card';
 @import 'opt-in';
+
 body {
   display: flex;
   min-height: 100vh;
@@ -23,6 +24,7 @@ main {
 .dashboard-card {
   height: 500px !important;
 }
+
 .chart {
   canvas {
       width: 90% !important;
@@ -31,17 +33,23 @@ main {
       margin-top: 10px;
   }
 }
-.block
-{
+
+.block {
   display: inline-block;
   font-size: 75%
 }
+
 .page-footer {
   background-color: $primary-color !important;
   a {
     color: $secondary-color !important
   }
 }
+
 .dashboard-card-tall {
   min-height: 580px
+}
+
+.table-of-contents a {
+    cursor: pointer;
 }
