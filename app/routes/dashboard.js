@@ -31,19 +31,36 @@ export default Ember.Route.extend({
       appInsights.trackPageView(user.get('login'));
       // start the default page a few days back
       this.send('changeTimeView', 4);
+
     });
   },
 
 
   // Pages the events store for more events
-  _appendBackData: function (cutOffTime, array, page) {
+  _appendBackData: function (days, array, page) {
     var loadedEnough = false,
-        total;
+        total,
+        latestTime,
+        cutOffTime;
     return this.store.find('event', {actorId: this.get('user.id'), page: page})
     .then(events => {
+
       total = events.get('meta.total');
       events.every(event => {
         var compareDateString = event.get('updated_at') || event.get('created_at');
+
+        if (!this.get('controller.latestEventDate')) {
+          // if this is the very first event , set the cutOffTime
+          latestTime = new Date(compareDateString).getTime();
+          this.set('controller.latestEventDate', compareDateString);
+        } else {
+          // use the already set latest event time
+          latestTime = new Date(this.get('controller.latestEventDate')).getTime();
+          // move the latest time back by 1 day
+          latestTime = latestTime - (1 * 86400000);
+        }
+
+        cutOffTime = new Date(latestTime - days * 86400000);
         if (cutOffTime > new Date(compareDateString)) {
           //break;
           loadedEnough = true;
@@ -62,12 +79,14 @@ export default Ember.Route.extend({
         return;
       }
 
-      return this._appendBackData(cutOffTime, array, page + 1);
+      return this._appendBackData(days, array, page + 1);
     });
   },
 
-  _removeBackData: function (cutOffTime) {
+  _removeBackData: function (days) {
+    var latestTime = new Date(this.get('controller.latestEventDate')).getTime();
     var totalEvents = this.get('controller.events.length');
+    var cutOffTime = new Date(latestTime - days * 86400000);
 
     if (totalEvents === 0) {
       let newArray = [].concat(this.get('controller.events'));
@@ -84,11 +103,11 @@ export default Ember.Route.extend({
     }
     this.get('controller.events').pop();
 
-    return this._removeBackData(cutOffTime);
+    return this._removeBackData(days);
   },
 
   _handleChangeTimeView: function (days) {
-    var cutOffTime = new Date(Date.now() - days * 86400000);
+
     var daysBack = this.get('daysBack');
     var promise;
 
@@ -98,7 +117,7 @@ export default Ember.Route.extend({
       appInsights.trackMetric('events', this.get('controller.events.length'));
       return;
     } else if (days < daysBack) {
-      promise = this._removeBackData(cutOffTime);
+      promise = this._removeBackData(days);
       this.get('controller.ranges').forEach(range => {
           Ember.set(range, 'active', range.daysBack === days);
       });
@@ -106,7 +125,7 @@ export default Ember.Route.extend({
       this.set('eventsLoading', false);
       appInsights.trackMetric('events', this.get('controller.events.length'));
     } else if (days > daysBack) {
-      this._appendBackData(cutOffTime, [], 1)
+      this._appendBackData(days, [], 1)
       .then(() => {
         this.get('controller.ranges').forEach(range => {
             Ember.set(range, 'active', range.daysBack === days);

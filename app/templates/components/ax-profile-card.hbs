@@ -4,7 +4,9 @@
   </div>
   <div class="card-content white-text profile-content">
     <h5>{{user.name}}</h5>
-    <i class="mdi-communication-location-on"></i>{{user.location}}
+    {{#if user.location}}
+      <i class="mdi-communication-location-on"></i>{{user.location}}
+    {{/if}}
     <p><a href="{{user.blog}}" target="_blank" class="truncate">{{user.blog}}</a></p>
     <p>{{user.company}}</p>
   </div>

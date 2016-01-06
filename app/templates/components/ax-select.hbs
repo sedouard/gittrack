@@ -1,0 +1,10 @@
+<select class="browser-default {{name}}" disabled={{disabled}} {{action 'change' on='change'}}>
+    {{#each content key="@index" as |item|}}
+        <option value="{{lookup item valuePath}}" selected={{is-equal item selectedValue}}>
+            {{item.name}}
+        </option>
+    {{/each}}
+    {{#if label}}
+        <label>{{label}}</label>
+    {{/if}}
+</select>
