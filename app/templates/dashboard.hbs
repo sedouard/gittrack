@@ -5,7 +5,7 @@
       {{ax-navbar user=user}}
       {{#if optIn}}
         <div class="row col s12 m10 range-selector-small">
-          {{md-select action="changeTimeView" content=ranges optionLabelPath="content.name" optionValuePath="content.daysBack" value=selectMenuDays }}
+          {{ax-select content=ranges valuePath="daysBack" displayPath="name" name="range-selector-small" action="changeTimeView" target=this value=selectMenuDays }}
         </div>
         <div class="row">
           <div class="col s12 m4">

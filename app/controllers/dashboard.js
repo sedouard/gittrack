@@ -1,4 +1,4 @@
-/*globals appInsights*/
+/*globals appInsights, moment*/
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
@@ -12,11 +12,7 @@ export default Ember.Controller.extend({
     });
   },
   commitsLoading: true,
-  selectMenuDays: 0,
   daysBack: 0,
-  daysBackObserver: Ember.observer('selectMenuDays', function () {
-    this.send('changeTimeView', this.get('selectMenuDays'));
-  }),
   /**
   Tracks actions across various cards
   **/
@@ -31,6 +27,15 @@ export default Ember.Controller.extend({
       appInsights.trackEvent('conversationClick');
     });
   },
+  _intialDaysBackObserve: true,
+  daysBackObserver: Ember.observer('selectMenuDays', function () {
+
+    if (this.get('_intialDaysBackObserve')) {
+      this.set('_intialDaysBackObserve', true);
+      return;
+    }
+    this.send('changeTimeView', this.get('selectMenuDays'));
+  }),
   pushEvents: function () {
     var events = this.get('events'),
         pushEvents = [];
@@ -74,42 +79,46 @@ export default Ember.Controller.extend({
 
     return pushEvents;
   }.property('events'),
-  ranges: [
-    { name: 'Today',
-      daysBack: 1,
-      active: true
-    },
-    {
-      name: 'Since Yesterday',
-      daysBack: 2,
-      active: false
-    },
-    {
-      name: 'Since 2 Days Ago',
-      daysBack: 3,
-      active: false
-    },
-    {
-      name: 'Since 3 Days Ago',
-      daysBack: 4,
-      active: false
-    },
-    {
-      name: 'Since 4 Days Ago',
-      daysBack: 5,
-      active: false
-    },
-    {
-      name: 'Since 5 Days Ago',
-      daysBack: 6,
-      active: false
-    },
-    {
-      name: 'Since 20 Days Ago',
-      daysBack: 20,
-      active: false
-    }
-  ],
+  latestEventDate: null,
+  ranges: function () {
+    var latestEventDate = this.get('latestEventDate') || new Date(Date.now());
+    return [
+      { name: 'Since ' + moment(latestEventDate).fromNow(),
+        daysBack: 1,
+        active: true
+      },
+      {
+        name: 'Since ' + moment(latestEventDate).subtract(1, 'days').fromNow(),
+        daysBack: 2,
+        active: false
+      },
+      {
+        name: 'Since ' + moment(latestEventDate).subtract(3, 'days').fromNow(),
+        daysBack: 3,
+        active: false
+      },
+      {
+        name: 'Since ' + moment(latestEventDate).subtract(4, 'days').fromNow(),
+        daysBack: 4,
+        active: false
+      },
+      {
+        name: 'Since ' + moment(latestEventDate).subtract(5, 'days').fromNow(),
+        daysBack: 5,
+        active: false
+      },
+      {
+        name: 'Since ' + moment(latestEventDate).subtract(6, 'days').fromNow(),
+        daysBack: 6,
+        active: false
+      },
+      {
+        name: 'Since ' + moment(latestEventDate).subtract(20, 'days').fromNow(),
+        daysBack: 20,
+        active: false
+      }
+    ];
+  }.property('latestEventDate'),
   rangeData: function () {
     return this.get('ranges');
   }.property('ranges.@each.active')
