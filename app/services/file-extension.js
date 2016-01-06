@@ -43,7 +43,13 @@ export default Ember.Service.extend({
       case 'c':
         return 'C';
       case 'cpp':
+      case 'h':
+      case 'cxx':
         return 'C++';
+      case 'm':
+        return 'Objective-C';
+      case 'swift':
+        return 'Swift';
       case 'yml':
         return 'YAML';
       case 'xml':
