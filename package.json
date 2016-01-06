@@ -32,6 +32,7 @@
     "ember-cli-htmlbars-inline-precompile": "^0.1.1",
     "ember-cli-ic-ajax": "0.2.1",
     "ember-cli-inject-live-reload": "^1.3.0",
+    "ember-cli-inline-content": "^0.4.0",
     "ember-cli-materialize": "git+https://sedouard@github.com/sedouard/ember-cli-materialize.git",
     "ember-cli-moment-shim": "0.7.1",
     "ember-cli-qunit": "0.3.15",
@@ -48,12 +49,12 @@
     "ember-moment": "4.2.1",
     "ember-new-computed": "1.0.3",
     "ember-radio-button": "1.0.7",
-    "liquid-fire": "0.21.3",
-    "materialize": "1.0.0",
-    "ember-cli-inline-content": "^0.4.0",
     "grunt": "^0.4.5",
     "grunt-azure-cdn-deploy": "^1.0.1",
     "grunt-cli": "^0.1.13",
-    "load-grunt-tasks": "^3.4.0"
+    "liquid-fire": "0.21.3",
+    "load-grunt-tasks": "^3.4.0",
+    "materialize": "1.0.0",
+    "prerender-node": "^2.2.0"
   }
 }
