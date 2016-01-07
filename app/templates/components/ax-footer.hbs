@@ -4,6 +4,14 @@
       <div class="col l6 s12">
         <h5 class="white-text">Want a <i class="mdi-action-trending-up">GitTrack</i> Profile?</h5>
         <p class="grey-text text-lighten-4 white-text">Star <a target="_blank" href="http://github.com/sedouard/gittrack">the repo</a> and your Dashboard will be generated!</p>
+        <h5 class="white-text">Send Some Love</h5>
+        {{#if user}}
+          <a href="https://twitter.com/share" class="twitter-share-button" data-text="Checkout my #github activity dashboard on #gittrack">Tweet</a>
+        {{else}}
+          <h5 class="white-text">Send Some Love</h5>
+          <a href="https://twitter.com/share" class="twitter-share-button" data-text="Analyze your #github activity on one easy dashboard">Tweet</a>
+        {{/if}}
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
       </div>
       <div class="col l4 offset-l2 s12">
         <h5 class="white-text">Want More?</h5>
