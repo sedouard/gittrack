@@ -9,7 +9,7 @@
   height: 320px !important;
 }
 .pr-chart {
-  overflow-y: scroll;
+  overflow-y: hidden;
   canvas {
       width: 90% !important;
       max-width: 800px;
