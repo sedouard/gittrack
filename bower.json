@@ -11,7 +11,7 @@
     "ember-resolver": "~0.1.18",
     "loader.js": "ember-cli/loader.js#3.2.0",
     "qunit": "~1.17.1",
-    "materialize": "0.97.4",
+    "materialize": ">= 0.97.4",
     "chartjs": "1.0.2",
     "moment": ">= 2.8.0",
     "moment-timezone": ">= 0.1.0"
