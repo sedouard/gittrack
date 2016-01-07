@@ -1,0 +1,10 @@
+.commit-pie-chart {
+  margin-top: 20px;
+  min-height: 390px;
+  canvas {
+      width: 90% !important;
+      max-width: 800px;
+      height: 320px !important;
+      margin-top: 10px;
+  }
+}

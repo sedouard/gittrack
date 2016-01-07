@@ -21,8 +21,19 @@
 
 .chart {
   margin-top: 20px;
-  min-height: 350px;
+  min-height: 370px;
 }
+.language-bar-chart {
+  margin-top: 20px;
+  min-height: 420px;
+  canvas {
+      width: 90% !important;
+      max-width: 800px;
+      height: 320px !important;
+      margin-top: 10px;
+  }
+}
+
 @media only screen and (min-width: 500px) {
   .range-selector-small {
     visibility: collapse;

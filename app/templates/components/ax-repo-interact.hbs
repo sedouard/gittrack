@@ -1,0 +1,12 @@
+{{#if isEmpty}}
+{{yield}}
+{{else}}
+<div class="works-with card-panel orange">
+  <div class="card-action medium center">
+    <span class="card-title white-text text-darken center">Worked On</span>
+  </div>
+  <div class="people-card center">
+    <h3><i class="mdi-action-book white-text valign">{{totalRepos}} Repos</i></h3>
+  </div>
+</div>
+{{/if}}

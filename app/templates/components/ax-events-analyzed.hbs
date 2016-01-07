@@ -1,0 +1,12 @@
+{{#if isEmpty}}
+{{yield}}
+{{else}}
+<div class="works-with card-panel indigo darken-3">
+  <div class="card-action medium center">
+    <span class="card-title white-text text-darken center">GitTrack Analyzed</span>
+  </div>
+  <div class="people-card center">
+    <h4><i class="mdi-image-flash-on white-text valign">{{totalEvents}} Events</i></h4>
+  </div>
+</div>
+{{/if}}

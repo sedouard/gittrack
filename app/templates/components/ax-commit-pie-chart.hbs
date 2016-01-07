@@ -1,5 +1,5 @@
 <div class="card dashboard-card">
-  <div class="card-image center chart dashboard-card">
+  <div class="card-image center commit-pie-chart">
     {{#if loading}}
       {{ax-large-spinner}}
     {{else}}
@@ -12,10 +12,10 @@
       {{/if}}
     {{/if}}
   </div>
-  <div class="card-action">
+  <div class="card-action color-content-primary">
     {{#if maxContributedRepo}}
-      <span class="card-title black-text text-darken">Commits by Repo</span>
-      <p>Over {{commits.length}} total commits, {{user.name}} has contributed most to <a target="_blank" href="http://github.com/{{maxContributedRepo.repo.full_name}}">{{maxContributedRepo.repo.full_name}}</a></p>
+      <span class="card-title white-text">Commits by Repo</span>
+      <p class="white-text">Over {{commits.length}} total commits, {{user.name}} has contributed most to <a target="_blank" href="http://github.com/{{maxContributedRepo.repo.full_name}}">{{maxContributedRepo.repo.full_name}}</a></p>
     {{/if}}
   </div>
 </div>
