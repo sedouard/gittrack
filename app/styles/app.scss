@@ -10,7 +10,7 @@
 @import 'works-with-card';
 @import 'conversations-card';
 @import 'opt-in';
-
+@import 'commit-pie-chart';
 body {
   display: flex;
   min-height: 100vh;
@@ -21,15 +21,11 @@ main {
   flex: 1 0 auto;
 }
 
-.dashboard-card {
-  height: 500px !important;
-}
-
 .chart {
   canvas {
       width: 90% !important;
       max-width: 800px;
-      height: 300px !important;
+      height: 320px !important;
       margin-top: 10px;
   }
 }
@@ -38,7 +34,9 @@ main {
   display: inline-block;
   font-size: 75%
 }
-
+.color-content-primary {
+  background-color: $primary-color;
+}
 .page-footer {
   background-color: $primary-color !important;
   a {
@@ -47,7 +45,10 @@ main {
 }
 
 .dashboard-card-tall {
-  min-height: 580px
+  min-height: 580px;
+  .card-image {
+    min-height: 500px;
+  }
 }
 
 .table-of-contents a {

@@ -1,6 +1,6 @@
 <div class="card dashboard-card-tall">
-  <div class="card-image waves-block waves-light min-height:300px">
-    <div class="row center chart">
+  <div class="card-image waves-block waves-light">
+    <div class="row center time-chart">
       {{#if loadingData}}
         {{ax-large-spinner}}
       {{else}}
@@ -9,17 +9,17 @@
           <h6>No Data, Try Rewinding the Time</h6>
         {{else}}
           {{ember-chart type='Line' data=timeChartData
-          options=chartOptions width=400 height=300 legend=true}}
+          options=chartOptions width=400 height=350 legend=true}}
         {{/if}}
       {{/if}}
     </div>
     <div class="divider"></div>
   </div>
-  <div class="card-content">
-    <span class="card-title activator grey-text text-darken-4 commit-title">Commit Activity<i class="material-icons right">more_vert</i></span>
+  <div class="card-content color-content-primary">
+    <span class="white-text card-title activator commit-title">Commit Activity<i class="material-icons right">more_vert</i></span>
     {{#each ranges key="@index" as |range|}}
       {{#if range.active}}
-        <p>{{range.name}}, {{user.name}} contributed {{commits.length}} commits over {{pushEvents.length}} pushes amounting to {{totalLinesCode}} lines of code changed.</p>
+        <p class="white-text">{{range.name}}, {{user.name}} contributed {{commits.length}} commits over {{pushEvents.length}} pushes amounting to {{totalLinesCode}} lines of code changed.</p>
       {{/if}}
     {{/each}}
   </div>

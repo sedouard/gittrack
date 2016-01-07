@@ -5,11 +5,16 @@
 
 .card-panel {
   .medium {
-    font-size: 2rem;
+    font-size: 1rem;
   }
 }
 
 .people-card {
-  max-height: 300px;
+  height: 120px;
+  margin-top: 18%;
   overflow-y: scroll;
+}
+
+.works-with {
+  height: 250px;
 }

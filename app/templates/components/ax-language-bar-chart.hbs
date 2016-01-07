@@ -1,5 +1,5 @@
 <div class="card dashboard-card">
-  <div class="card-image center chart">
+  <div class="card-image center language-bar-chart">
     {{#if loadingData}}
       {{ax-large-spinner}}
     {{else}}
@@ -12,7 +12,9 @@
       {{/if}}
     {{/if}}
   </div>
-  <div class="card-action">
-    <span class="card-title black-text text-darken">Top Languages Over {{pushEvents.length}} Pushes</span>
+  <div class="card-action orange">
+    <span class="card-title white-text">Top Languages Over {{pushEvents.length}} Pushes</span>
+    <br/>
+    <br/>
   </div>
 </div>
