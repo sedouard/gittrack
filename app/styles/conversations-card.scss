@@ -1,6 +1,6 @@
 .conversation-ul {
   overflow-y: scroll !important;
-  max-height: 300px !important;
+  max-height: 400px !important;
 }
 .issue-title {
   font-size: 150% !important;
@@ -11,7 +11,9 @@
 .comment-body {
   float:left
 }
-
+.conversation-content {
+  min-height: 450px;
+}
 @media only screen and (max-width: 500px) {
   .conversation-ul {
     font-size: 10px

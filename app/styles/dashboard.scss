@@ -5,11 +5,14 @@
   }
 }
 .dashboard {
-  overflow-y: scroll;
-  overflow-x:hidden;
+  overflow-y: hidden;
+  overflow-x: hidden;
   min-height: 1000px;
 }
 
+.range-selector {
+  overflow-y: hidden;
+}
 .large-spinner {
   width: 100px !important;
   height: 100px !important;
@@ -32,6 +35,12 @@
       height: 320px !important;
       margin-top: 10px;
   }
+}
+.language-card-title {
+  height: 98px;
+}
+.pull-requests-title {
+  height: 140px;
 }
 
 @media only screen and (min-width: 500px) {

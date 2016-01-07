@@ -1,20 +1,17 @@
+{{#if isEmpty}}
+{{yield}}
+{{else}}
 <div class="works-with card-panel teal">
   <div class="card-action medium center">
     <span class="card-title white-text text-darken">Recently Worked With</span>
   </div>
   <div class="people-card center">
-    {{#if isEmpty}}
-      <div class="center white-text">
-        <i class="mdi-action-restore large"></i>
-        <h6>No Data, Try Rewinding the Time</h6>
-      </div>
-    {{else}}
-      {{#each people key="@index" as |person|}}
-       <div class="chip contact">
-        <img src="{{person.avatar_url}}" alt="{{person.login}}">
-        <a target="_blank" href="https://github.com/{{person.login}}">{{person.login}}</a>
-       </div>
-      {{/each}}
-    {{/if}}
+    {{#each people key="@index" as |person|}}
+     <div class="chip contact">
+      <img src="{{person.avatar_url}}" alt="{{person.login}}">
+      <a target="_blank" href="https://github.com/{{person.login}}">{{person.login}}</a>
+     </div>
+    {{/each}}
   </div>
 </div>
+{{/if}}
