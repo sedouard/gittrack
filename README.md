@@ -10,7 +10,7 @@ GitTrack is a heads-up-display of your activity on Github. It provides a single 
 
 # Getting a GitTrack
 
-To generate your GitTrack, just star this repo and visit [gittrack.io](http://gittrack.io) and enter your github username.
+To generate your GitTrack, just star this repo, visit [gittrack.io](http://gittrack.io) and enter your github username.
 
 
 # Contributing
