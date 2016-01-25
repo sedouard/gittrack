@@ -14,15 +14,15 @@ Contributions are always welcome! Be sure to follow the [github workflow](https:
 
 # Pre-requisites
 
-- Node.js (Testing using node 0.12.7). To make things easy I recommend using [nvm](https://www.npmjs.com/package/nvm)
--[Ember-CLI](https://www.npmjs.com/package/ember-cli)
+- Node.js (Testing using node 0.12.7). To make things easy I recommend using [node version manager](https://www.npmjs.com/package/nvm) 
+- [Ember-CLI](https://www.npmjs.com/package/ember-cli)
 
 # Running the App Locally
 
 To run GitTrack, just do:
 
 ```
-npm insatll && bower install
+npm install && bower install
 ember serve
 ```
 
@@ -30,4 +30,4 @@ Then open your browser, and go to `http://localhost:4200`
 
 # Running the Tests
 
-Tests are written in the [`./test`](./test) folder. Today the only tests that are being ran are simple 'ensure exists' tests. In the very near future we'll have component and integration tests. For now, I'm just manually validating changes.
+Tests are written in the [`./test`](./test) folder. Today the only tests that are being ran are simple 'ensure exists' tests and aren't being ran today. In the very near future we'll have component and integration tests. For now, I'm just manually validating changes.
