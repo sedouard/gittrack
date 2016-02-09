@@ -29,9 +29,7 @@ main {
       margin-top: 10px;
   }
 }
-.commits-title {
-  height: 140px;
-}
+
 .block {
   display: inline-block;
   font-size: 75%
@@ -46,12 +44,6 @@ main {
   }
 }
 
-.dashboard-card-tall {
-  min-height: 450px;
-  .card-image {
-    min-height: 500px;
-  }
-}
 
 .table-of-contents a {
     cursor: pointer;
