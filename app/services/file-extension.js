@@ -12,6 +12,14 @@ export default Ember.Service.extend({
         return 'c#';
       case 'vb':
         return 'Visual Basic';
+      case 'scss':
+        return 'Sass';
+      case 'css':
+        return 'css';
+      case 'less':
+        return 'less';
+      case 'stylus':
+        return 'stylus';
       case 'bat':
         return 'Batch script';
       case 'ps':
