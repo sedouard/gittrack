@@ -1,5 +1,4 @@
 .range-selector {
-  margin-top:122px;
   .active-range {
     font-weight: bold;
   }
@@ -36,11 +35,43 @@
       margin-top: 10px;
   }
 }
+.time-chart {
+  canvas {
+    max-height: 320px !important;
+  }
+}
 
 .card .card-action {
 
 }
 
+.fixed-sidebar {
+  position:fixed!important;
+  top:6px;
+  right:0!important;
+  z-index: 0;
+  li {
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 0px;
+  }
+}
+
+.table-of-contents a {
+  transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  padding-left:6px;
+}
+
+.page-footer {
+  z-index: 100;
+  position:absolute;
+  width:100%;
+}
 
 @media only screen and (min-width: 500px) {
   .range-selector-small {
@@ -52,6 +83,6 @@
 @media only screen and (max-width: 500px) {
   .range-selector-small {
     visibility: visible;
-    max-height: 300px;
+
   }
 }
