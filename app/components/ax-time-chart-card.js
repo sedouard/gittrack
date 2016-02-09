@@ -53,7 +53,7 @@ export default Ember.Component.extend({
     });
 
     datasets.push({
-      label: "Commits Over Time",
+      label: "Lines of Code",
       fillColor: config.chartColors[0],
       data: totals
     });
@@ -110,6 +110,8 @@ export default Ember.Component.extend({
 
   chartOptions: function () {
     return {
+      scaleFontSize : 16,
+
       //Boolean - Show a backdrop to the scale label
       scaleShowLabelBackdrop: true,
 
