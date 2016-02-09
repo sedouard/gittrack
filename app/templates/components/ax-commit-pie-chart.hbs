@@ -14,7 +14,7 @@
   </div>
   <div class="card-action commits-title color-content-primary">
     {{#if maxContributedRepo}}
-      <span class="card-title white-text"><i class="material-icons">create</i> Commits by Repo</span>
+      <span class="card-title white-text truncate"><i class="material-icons">create</i> Commits by Repo</span>
       <p class="white-text">Over {{commits.length}} total commits, {{user.name}} has contributed most to <a target="_blank" href="http://github.com/{{maxContributedRepo.repo.full_name}}">{{maxContributedRepo.repo.full_name}}</a></p>
     {{/if}}
   </div>
