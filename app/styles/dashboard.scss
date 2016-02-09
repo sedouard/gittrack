@@ -1,5 +1,5 @@
 .range-selector {
-  margin-top: 25%;
+  margin-top:122px;
   .active-range {
     font-weight: bold;
   }
@@ -19,7 +19,7 @@
 }
 
 .dashboard-card {
-  height: 530px !important
+
 }
 
 .chart {
@@ -28,7 +28,7 @@
 }
 .language-bar-chart {
   margin-top: 20px;
-  min-height: 420px;
+
   canvas {
       width: 90% !important;
       max-width: 800px;
@@ -36,12 +36,11 @@
       margin-top: 10px;
   }
 }
-.language-card-title {
-  height: 98px;
+
+.card .card-action {
+
 }
-.pull-requests-title {
-  height: 140px;
-}
+
 
 @media only screen and (min-width: 500px) {
   .range-selector-small {

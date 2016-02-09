@@ -120,6 +120,8 @@ export default Ember.Component.extend({
   chartOptions: function () {
 
     return {
+        scaleFontSize : 16,
+
         //Boolean - Whether the scale should start at zero, or an order of magnitude down from the lowest value
         scaleBeginAtZero : true,
 
