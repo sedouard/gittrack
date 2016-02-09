@@ -4,6 +4,7 @@ export default Ember.Component.extend({
   commitsLoading: false,
   maxContributedRepo: null,
   loadingData: Ember.computed.or('commitsLoading', 'loading'),
+
   isEmpty: function () {
     return !this.get('pieChartData');
   }.property('pieChartData'),
