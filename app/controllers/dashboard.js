@@ -8,6 +8,7 @@ export default Ember.Controller.extend({
     Ember.run.scheduleOnce('afterRender', () => {
       Ember.$(document).ready(() => {
         Ember.$('.scrollspy').scrollSpy({target: '.spy-active'});
+        Ember.$('.tooltipped').tooltip({delay: 50});
       });
     });
   },

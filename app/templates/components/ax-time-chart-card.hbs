@@ -16,7 +16,7 @@
     <div class="divider"></div>
   </div>
   <div class="card-content color-content-primary">
-    <span class="white-text card-title activator commit-title truncate"><i class="material-icons">timeline</i> Commit Activity<i class="material-icons right">more_vert</i></span>
+    <span class="white-text card-title activator commit-title truncate"><i class="material-icons">timeline</i><span class="tooltipped" data-tooltip="Indicates overall coding activity over a period of time">Commit Activity</span><i class="material-icons right">more_vert</i></span>
     {{#each ranges key="@index" as |range|}}
       {{#if range.active}}
         <p class="white-text">{{range.name}}, {{user.name}} contributed {{commits.length}} commits over {{pushEvents.length}} pushes amounting to {{totalLinesCode}} lines of code changed.</p>

@@ -6,9 +6,6 @@ export default Ember.Component.extend({
   commitsLoading: false,
   loadingData: Ember.computed.or('commitsLoading', 'loading'),
   init: function () {
-    Ember.run.scheduleOnce('afterRender', () => {
-
-    });
     return this._super();
   },
   isEmpty: function () {
