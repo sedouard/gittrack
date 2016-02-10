@@ -1,7 +1,7 @@
 /*globals appInsights*/
 import Ember from 'ember';
-import config from '../config/environment';
 export default Ember.Component.extend({
+  colors: Ember.inject.service('colors'),
   init: function () {
     Ember.$(document).ready(function(){
       Ember.$('.pr-title .collapsible-header').click(() => {
@@ -69,7 +69,7 @@ export default Ember.Component.extend({
         dataDict[event.get('repo.name')] = {
           label: event.get('repo.name'),
           value: event.get('additions') + event.get('deletions'),
-          color: config.chartColors[color]
+          color: this.get('colors').getColorForKey(event.get('repo.name'))
         };
         color++;
       }

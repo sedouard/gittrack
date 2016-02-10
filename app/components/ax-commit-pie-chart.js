@@ -1,6 +1,6 @@
 import Ember from 'ember';
-import config from '../config/environment';
 export default Ember.Component.extend({
+  colors: Ember.inject.service('colors'),
   commitsLoading: false,
   maxContributedRepo: null,
   loadingData: Ember.computed.or('commitsLoading', 'loading'),
@@ -12,7 +12,6 @@ export default Ember.Component.extend({
   pieChartData: function () {
 
     var dataDict = {};
-    var color = 0;
     var maxContributedRepo = null;
     var commits = this.get('commits');
     if (commits.get('length') === 0) {
@@ -25,9 +24,8 @@ export default Ember.Component.extend({
         dataDict[commit.get('repo.name')] = {
           label: commit.get('repo.name'),
           value: commit.get('stats.total'),
-          color: config.chartColors[color]
+          color: this.get('colors').getColorForKey(commit.get('repo.name'))
         };
-        color++;
       }
       var total = commit.get('stats.total');
       dataDict[commit.get('repo.name')].value += total;

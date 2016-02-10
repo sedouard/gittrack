@@ -5,9 +5,9 @@ module.exports = function(environment) {
     modulePrefix: 'ghtacker',
     environment: environment,
     chartColors: [
-      '#42a5f5',
-      '#26a69a',
-      '#26c6da',
+      '#0d47a1',
+      '#d81b60',
+      '#80d8ff',
       '#29b6f6',
       '#66bb6a',
       '#d4e157',
