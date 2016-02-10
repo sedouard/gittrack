@@ -1,7 +1,7 @@
+/* globals moment */
 import Ember from 'ember';
-import config from '../config/environment';
 export default Ember.Component.extend({
-  dateUtils: Ember.inject.service('dateUtils'),
+  colors: Ember.inject.service('colors'),
   fileExtension: Ember.inject.service('fileExtension'),
   commitsLoading: false,
   loadingData: Ember.computed.or('commitsLoading', 'loading'),
@@ -31,34 +31,68 @@ export default Ember.Component.extend({
 
     var datasets = [];
     var totals = [];
+    var repoDictionary = {};
+    var index = includedRanges.length - 1;
     var labels = [];
+
     includedRanges.forEach(range => {
 
       var total = 0;
       var startTime = new Date(Date.now() - (range.daysBack - 1) * 86400000);
       var cutOffTime = new Date(Date.now() - range.daysBack * 86400000);
+
       this.get('commits').forEach(commit => {
         // test if commit lies within target time
         var compareDate = new Date(commit.get('created_at'));
         if (compareDate > cutOffTime &&
           compareDate < startTime) {
           total += commit.get('stats.total');
+
+          // per project count
+          if (!repoDictionary[commit.get('repo.name')]) {
+            // create a new entry
+            repoDictionary[commit.get('repo.name')] = {
+              totals: []
+            };
+            // init array with zeros, since each day needs at least one entry
+            for (let i = 0; i < includedRanges.length; i++) {
+              repoDictionary[commit.get('repo.name')].totals.push(0);
+            }
+          }
+
+          // push an additional total entry for this day
+          repoDictionary[commit.get('repo.name')].totals[index] += commit.get('stats.total');
         }
       });
-      labels.unshift(this.get('dateUtils').getDayOfWeek(cutOffTime.getDay()));
+      index -= 1;
+      labels.unshift(moment(cutOffTime).fromNow());
       totals.unshift(total);
     });
 
     datasets.push({
-      label: "Lines of Code",
-      fillColor: config.chartColors[0],
+      label: 'Total Changes',
+      fillColor: this.get('colors').getColorForKey('Lines of Code'),
+      strokeColor: this.get('colors').getColorForKey('Lines of Code'),
+      pointColor: this.get('colors').getColorForKey('Lines of Code'),
       data: totals
+    });
+
+    Object.keys(repoDictionary).forEach(repoName => {
+      var color = this.get('colors').getColorForKey(repoName);
+      datasets.push({
+        label: repoName,
+        fillColor: this.get('colors').setAlpha(color, 0.5),
+        strokeColor: color,
+        pointColor: color,
+        data: repoDictionary[repoName].totals
+      });
     });
 
     var data = {
       labels: labels,
       datasets: datasets
     };
+
 
     // compute languges
     this._computeLangauges();
@@ -91,7 +125,6 @@ export default Ember.Component.extend({
 
       commit.set('languages', languagesArray);
     });
-
   },
 
   totalLinesCode: function () {
@@ -136,6 +169,13 @@ export default Ember.Component.extend({
       //Number - The width of the stroke value in pixels
       segmentStrokeWidth: 2,
 
+      datasetStroke : true,
+
+      datasetFill: true,
+
+      //Number - Pixel width of dataset stroke
+      datasetStrokeWidth : 5,
+
       //Number - Amount of animation steps
       animationSteps: 100,
 
@@ -149,8 +189,8 @@ export default Ember.Component.extend({
       animateScale: true,
 
       //String - A legend template
-      legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"
+      legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].strokeColor%>\" class=\"square\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>"
 
     };
-  }
+  }.property()
 });

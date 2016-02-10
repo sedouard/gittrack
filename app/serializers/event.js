@@ -158,7 +158,7 @@ export default DS.RESTSerializer.extend({
       for (let key in data) {
         let field = data[key];
 
-        if (field && key === 'base' || key === 'head') {
+        if (field && field.repo && (key === 'base' || key === 'head')) {
           field.attributes = field;
           field.type = 'prTip';
           field.id = field.sha;

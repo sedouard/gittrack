@@ -31,6 +31,7 @@ module.exports = function(defaults) {
   });
 
   app.import('./bower_components/materialize/dist/js/materialize.js');
+  app.import('./bower_components/color/one-color.js');
   app.import('./bower_components/materialize/dist/font/material-design-icons/Material-Design-Icons.eot', {
       destDir: 'fonts'
   });
