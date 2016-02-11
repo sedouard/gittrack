@@ -1,6 +1,6 @@
-<div class="card dashboard-card-tall">
+<div class="card">
   <div class="card-image waves-block waves-light">
-    <div class="row center time-chart">
+    <div class="center time-chart">
       {{#if loadingData}}
         {{ax-large-spinner}}
       {{else}}
@@ -13,7 +13,6 @@
         {{/if}}
       {{/if}}
     </div>
-    <div class="divider"></div>
   </div>
   <div class="card-content color-content-primary">
     <span class="white-text card-title activator commit-title truncate"><i class="material-icons">timeline</i><span class="tooltipped" data-tooltip="Indicates overall coding activity over a period of time">Commit Activity</span><i class="material-icons right">more_vert</i></span>

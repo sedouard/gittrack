@@ -5,11 +5,11 @@ var path = require('path');
 module.exports = function(defaults) {
   var staticPathRoot = process.env.STATIC_ASSET_ROOT || '';
   var inlineContent = {
-    'gittrack.js' : {
-      content: staticPathRoot + 'assets/ghtacker.js'
+    'GitTrack.js' : {
+      content: staticPathRoot + 'assets/GitTrack.js'
     },
-    'gittrack.css' : {
-      content: staticPathRoot + 'assets/ghtacker.css'
+    'GitTrack.css' : {
+      content: staticPathRoot + 'assets/GitTrack.css'
     },
     'vendor.css' : {
       content: staticPathRoot + 'assets/vendor.css'

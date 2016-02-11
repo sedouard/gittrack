@@ -16,13 +16,29 @@
       width: 90% !important;
       max-width: 800px;
       margin-top: 10px;
+      text-align: center;
+  }
+  a {
+    // important to override time-chart
+    text-align: left;
   }
 }
+
+.timechart-legend {
+  overflow-y: scroll;
+  height: 100%;
+  max-height: 150px;
+  margin-bottom: 0px;
+}
+
 .commit-reveal {
   background-color: $primary-color !important;
 }
-.square {
-  width:10px;
-  height:10px;
+.circle {
+  width: 10px;
+  height: 10px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
   display: inline-block;
 }

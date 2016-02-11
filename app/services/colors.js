@@ -21,6 +21,9 @@ export default Ember.Service.extend({
   setAlpha: function (color, alpha) {
     return one.color(color).alpha(alpha).cssa();
   },
+  getTimeChartTotalColor: function () {
+    return config.totalChartColor;
+  },
   colorIndex: 0,
   keys: {}
 });

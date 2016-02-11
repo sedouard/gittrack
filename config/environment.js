@@ -2,18 +2,20 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'ghtacker',
+    modulePrefix: 'GitTrack',
     environment: environment,
     chartColors: [
       '#0d47a1',
       '#d81b60',
-      '#80d8ff',
+      '#64ffda',
       '#29b6f6',
       '#66bb6a',
       '#d4e157',
       '#ff9800',
       '#69f0ae'
     ],
+    // this color is important to be just for the total part of the line graph
+    totalChartColor: '#666',
     host: 'http://cache.gittrack.io',
     starsHost: 'http://stars-tracker.gittrack.io',
     baseURL: '/',
