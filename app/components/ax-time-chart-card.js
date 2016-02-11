@@ -5,9 +5,6 @@ export default Ember.Component.extend({
   fileExtension: Ember.inject.service('fileExtension'),
   commitsLoading: false,
   loadingData: Ember.computed.or('commitsLoading', 'loading'),
-  init: function () {
-    return this._super();
-  },
   isEmpty: function () {
     return !this.get('timeChartData');
   }.property('timeChartData'),
@@ -52,7 +49,8 @@ export default Ember.Component.extend({
           if (!repoDictionary[commit.get('repo.name')]) {
             // create a new entry
             repoDictionary[commit.get('repo.name')] = {
-              totals: []
+              totals: [],
+              htmlUrl: commit.get('repo.html_url')
             };
             // init array with zeros, since each day needs at least one entry
             for (let i = 0; i < includedRanges.length; i++) {
@@ -70,17 +68,18 @@ export default Ember.Component.extend({
     });
 
     datasets.push({
-      label: 'Total Changes',
-      fillColor: this.get('colors').getColorForKey('Lines of Code'),
-      strokeColor: this.get('colors').getColorForKey('Lines of Code'),
-      pointColor: this.get('colors').getColorForKey('Lines of Code'),
+      label: { name: 'Total Changes' },
+      fillColor: this.get('colors').getTimeChartTotalColor(),
+      strokeColor: this.get('colors').getTimeChartTotalColor(),
+      pointColor: this.get('colors').getTimeChartTotalColor(),
       data: totals
     });
 
     Object.keys(repoDictionary).forEach(repoName => {
+
       var color = this.get('colors').getColorForKey(repoName);
       datasets.push({
-        label: repoName,
+        label: { name: repoName, htmlUrl: repoDictionary[repoName].htmlUrl },
         fillColor: this.get('colors').setAlpha(color, 0.5),
         strokeColor: color,
         pointColor: color,
@@ -98,7 +97,7 @@ export default Ember.Component.extend({
     this._computeLangauges();
 
     return data;
-  }.property('commits'),
+  }.property('commits', 'inactiveGraphs'),
 
   _computeLangauges: function () {
     if (this.get('commits.length') <= 0) {
@@ -189,7 +188,7 @@ export default Ember.Component.extend({
       animateScale: true,
 
       //String - A legend template
-      legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].strokeColor%>\" class=\"square\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>"
+      legendTemplate: '<div class="collection timechart-legend"><% for (var i=0; i<datasets.length; i++){%><%if(datasets[i].label.htmlUrl){%><a target="_blank" href="<%=datasets[i].label.htmlUrl%>" class="collection-item legend-selecter"><%} else{%><a class="collection-item legend-selecter"><%}%><span style="background-color:<%=datasets[i].strokeColor%>" class="circle"></span> <%if(datasets[i].label.name){%><%=datasets[i].label.name%><%}%></a><%}%></div>'
 
     };
   }.property()
