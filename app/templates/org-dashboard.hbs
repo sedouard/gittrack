@@ -7,6 +7,12 @@
             <div class="nav-wrapper dashboard-navbar">
               <span class="mdi-action-trending-up ghtrack-logo">{{gittrackUrl}}</span>
               <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li class="tooltipped" data-tooltip="Click here for an overview of all activity by {{user.id}} members">
+                  {{#link-to 'member-dashboard' user.id}}Members{{/link-to}}
+                </li>
+                <li class="active tooltipped" data-tooltip="Click here for an overview of all activity within the {{user.id}} organization">
+                  {{#link-to 'org-dashboard' user.id}}Organization{{/link-to}}
+                </li>
                 <li>
                   <a target="_blank" href="http://github.com/sedouard/gittrack">Fork Me on Github<i class="material-icons left">call_split</i></a>
                 </li>
@@ -34,7 +40,7 @@
         <div class="medium-charts">
           <div class="row">
             <div class="col s12 m6">
-              {{ax-language-bar-chart events=events loading=eventsLoading user=user caption=(concat "Here are the languages " user.name " has recently pushed code in.") tooltip=(concat "Indicates what programming language " user.name " might be best at")}}
+              {{ax-language-bar-chart events=events loading=eventsLoading user=user caption=(concat 'Here\'s the breakdown of languages recently pushed to the ' user.name ' organization repositories.') tooltip=(concat "Indicates what programming languages are used most within " user.name " repos")}}
             </div>
             <div class="col s12 m6">
               {{ax-pull-request-card events=events loading=eventsLoading}}

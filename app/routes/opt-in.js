@@ -6,7 +6,7 @@ export default Ember.Route.extend({
     .then(stars => {
 
       if (stars.get('length') > 0) {
-        return this.transitionTo('dashboard', user);
+        return this.transitionTo('orgDashboard', user);
       }
       return controller.set('user', user);
     });

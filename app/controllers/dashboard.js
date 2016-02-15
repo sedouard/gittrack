@@ -12,6 +12,10 @@ export default Ember.Controller.extend({
       });
     });
   },
+  gittrackUrl: function () {
+    Ember.Logger.debug('navbar: user =' + this.get('user'));
+    return 'gittrack.io/' + this.get('user.id');
+  }.property('user'),
   commitsLoading: true,
   daysBack: 0,
   /**
