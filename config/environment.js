@@ -28,7 +28,7 @@ module.exports = function(environment) {
     },
     contentSecurityPolicy: {
       'default-src': "'none'",
-      'script-src': "'self' http://gittrack.io/ http://cdn.gittrack.io http://az416426.vo.msecnd.net 'unsafe-inline' 'unsafe-eval'",
+      'script-src': "'self' http://gittrack.io/ http://cdn.gittrack.io http://az416426.vo.msecnd.net http://platform.twitter.com 'unsafe-inline' 'unsafe-eval'",
       'font-src': "'self' http://gittrack.io/ fonts.gstatic.com http://cdn.gittrack.io",
       'connect-src': "'self' https://api.github.com/ https://avatars.githubusercontent.com/ http://localhost:3000 http://gittrack.io http://stars-tracker.gittrack.io http://cache.gittrack.io http://cdn.gittrack.io http://dc.services.visualstudio.com/v2/track",
       'img-src': "'self' https://api.github.com/ https://avatars.githubusercontent.com/ http://localhost:3000 http://gittrack.io http://stars-tracker.gittrack.io http://cache.gittrack.io http://cdn.gittrack.io",

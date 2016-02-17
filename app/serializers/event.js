@@ -4,10 +4,12 @@ import env from '../config/environment';
 export default DS.RESTSerializer.extend({
   isNewSerializerAPI: true,
   normalizeFindRecordResponse: function (store, primaryModelClass, payload) {
-    if (primaryModelClass.modelName ==='user') {
+    if (primaryModelClass.modelName === 'user') {
       payload.id = payload.login;
       // tiny hack to get the followers link at github.com
       payload.followers_html = payload.followers_url.replace('api.', '').replace('/users','');
+    } else if (primaryModelClass.modelName === 'org') {
+      payload.id = payload.login;
     }
     // temporary
     payload.url = payload.url.replace('https://api.github.com', env.host);
@@ -31,16 +33,32 @@ export default DS.RESTSerializer.extend({
 
     return payload;
   },
+  // normalizes query responses for event, user, member and org models
   normalizeQueryResponse: function (store, primaryModelClass, payload) {
-    payload = {
-      data: payload,
-      links: payload.links,
-      meta: payload.meta
-    };
+
 
     if (primaryModelClass.modelName === 'event') {
+      payload = {
+        data: payload,
+        links: payload.links,
+        meta: payload.meta
+      };
       var linkage = this.normalizeEvent(payload);
       payload.included = linkage;
+    } else if (primaryModelClass.modelName === 'org' ||
+      primaryModelClass.modelName === 'member' ||
+      primaryModelClass.modelName === 'user') {
+
+      var data = [];
+      payload.forEach(memberRaw => {
+        data.push(this.normalizeFindRecordResponse(store, primaryModelClass, memberRaw).data);
+      });
+
+      payload = {
+        data: data,
+        links: payload.links,
+        meta: payload.meta
+      };
     }
 
     Ember.Logger.debug(payload);

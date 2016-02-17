@@ -1,10 +1,10 @@
 import DS from 'ember-data';
-import event from '../serializers/event';
+import EventSerializer from '../serializers/event';
 import env from '../config/environment';
 export default DS.RESTAdapter.extend({
   host: env.host,
   // Ember Data 2.0 Reload behavior
-  serializer: event.create(),
+  serializer: EventSerializer.create(),
   handleResponse: function (status, headers, payload) {
 
     payload.meta = {};

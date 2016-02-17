@@ -188,7 +188,7 @@ export default Ember.Component.extend({
       animateScale: true,
 
       //String - A legend template
-      legendTemplate: '<div class="collection timechart-legend"><% for (var i=0; i<datasets.length; i++){%><%if(datasets[i].label.htmlUrl){%><a target="_blank" href="<%=datasets[i].label.htmlUrl%>" class="collection-item legend-selecter"><%} else{%><a class="collection-item legend-selecter"><%}%><span style="background-color:<%=datasets[i].strokeColor%>" class="circle"></span> <%if(datasets[i].label.name){%><%=datasets[i].label.name%><%}%></a><%}%></div>'
+      legendTemplate: '<div class="collection timechart-legend"><% for (var i=0; i<datasets.length; i++){%><%if(datasets[i].label.htmlUrl){%><a target="_blank" href="<%=datasets[i].label.htmlUrl%>" class="collection-item legend-selecter"><%} else{%><a class="collection-item legend-selecter"><%}%><span style="background-color:<%=datasets[i].strokeColor%>" class="circle-legend"></span> <%if(datasets[i].label.name){%><%=datasets[i].label.name%><%}%></a><%}%></div>'
 
     };
   }.property()

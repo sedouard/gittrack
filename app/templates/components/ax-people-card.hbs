@@ -1,0 +1,40 @@
+<div class="card">
+  <div class="card-image waves-block waves-light">
+    <div>
+      {{#if loadingData}}
+        {{ax-large-spinner}}
+      {{else}}
+        {{#if isEmpty}}
+          <i class="mdi-action-restore large"></i>
+          <h6>No Data, Try Rewinding the Time</h6>
+        {{else}}
+          <ul class="collection collapsible popout people-ul" data-collapsible="accordion">
+            {{#each members key="@index" as |member|}}
+              <li {{action "drillDownUser" member}} class="collection-item avatar people-li">
+                <div class="collapsible-header">
+                  <img src="{{member.avatar_url}}" alt="" class="circle circle-people">
+                  <span class="title"><a target="_blank" href="{{member.html_url}}">{{member.id}}</a></span>
+                  <p>First Line <br>
+                     Second Line
+                  </p>
+                  <a href="http://gittrack.io/{{member.id}}" class="secondary-content tooltipped" data-tooltip="Open {{member.id}}'s GitTrack profile"><i class="mdi-action-trending-up"></i></a>
+                </div>
+                <div class="collapsible-body">
+                  <h5>somethin else!</h5>
+                </div>
+              </li>
+            {{/each}}
+          </ul>
+        {{/if}}
+      {{/if}}
+    </div>
+  </div>
+  <div class="card-content color-content-primary">
+    <span class="white-text card-title activator commit-title truncate"><i class="material-icons">timeline</i><span class="tooltipped" data-tooltip="Indicates overall coding activity over a period of time">{{user.id}} Members</span><i class="material-icons right">more_vert</i></span>
+    {{#each ranges key="@index" as |range|}}
+      {{#if range.active}}
+        <p class="white-text">{{range.name}}, {{user.name}} contributed {{commits.length}} commits over {{pushEvents.length}} pushes amounting to {{totalLinesCode}} lines of code changed.</p>
+      {{/if}}
+    {{/each}}
+  </div>
+</div>

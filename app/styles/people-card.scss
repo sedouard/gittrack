@@ -1,0 +1,13 @@
+.circle-people {
+  // when using within a card we must override to make this a circle
+  @extend circle;
+  border-radius: 50% !important;
+  margin-top: 10px;
+}
+.people-ul {
+  overflow-y: scroll;
+  max-height: 400px;
+}
+.people-li {
+  color: #000000 !important;
+}

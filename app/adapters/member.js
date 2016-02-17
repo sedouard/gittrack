@@ -1,14 +1,12 @@
-import EventSerializer from '../serializers/event';
 import GithubAdapter from './github';
 export default GithubAdapter.extend({
-  serializer: EventSerializer.create(),
   buildURL: function (modelName, id, snapshot, requestType, query) {
     // since ember's json api doesn't really work with .get for hasmany
     // relationships, we have to do this
     var resolvedURL = this._super(modelName, id, snapshot, requestType, query);
-    if (query.actorId) {
+    if (query.org) {
 
-      resolvedURL = resolvedURL.replace(this.get('host'), '/users/' + query.actorId);
+      resolvedURL = resolvedURL.replace(this.get('host'), '/orgs/' + query.org);
       resolvedURL = this.get('host') + resolvedURL;
 
       if (query.page) {
